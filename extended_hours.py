@@ -92,8 +92,18 @@ def fetch_extended_hours_batch(tickers: list[str]) -> dict[str, pd.DataFrame]:
                         continue
                     df = data[symbol].copy()
 
+                # Flatten multi-level columns if present
+                if isinstance(df.columns, pd.MultiIndex):
+                    df.columns = df.columns.droplevel(1)
+
                 df = df.dropna(how="all")
                 if df.empty:
+                    continue
+
+                # Ensure expected OHLCV columns exist
+                expected = {"Open", "High", "Low", "Close", "Volume"}
+                if not expected.issubset(set(df.columns)):
+                    log.debug(f"Skipping {symbol}: missing columns {expected - set(df.columns)}")
                     continue
 
                 # Ensure timezone-aware index for session classification
@@ -162,27 +172,55 @@ def compute_extended_hours_metrics(
             pm = df[df["session"] == "pre_market"]
             regular = df[df["session"] == "regular"]
 
+            def _safe_close(sub_df):
+                if sub_df.empty or "Close" not in sub_df.columns:
+                    return None
+                val = sub_df["Close"].iloc[-1]
+                return float(val) if pd.notna(val) else None
+
+            def _safe_float_val(sub_df, col):
+                if sub_df.empty or col not in sub_df.columns:
+                    return None
+                val = sub_df[col].iloc[-1]
+                return float(val) if pd.notna(val) else None
+
+            def _safe_sum(sub_df, col):
+                if sub_df.empty or col not in sub_df.columns:
+                    return 0.0
+                return float(sub_df[col].sum())
+
+            def _safe_max(sub_df, col):
+                if sub_df.empty or col not in sub_df.columns:
+                    return None
+                val = sub_df[col].max()
+                return float(val) if pd.notna(val) else None
+
+            def _safe_min(sub_df, col):
+                if sub_df.empty or col not in sub_df.columns:
+                    return None
+                val = sub_df[col].min()
+                return float(val) if pd.notna(val) else None
+
             # After-hours: last session's close and volume
             if not ah.empty:
-                last_ah_close = float(ah["Close"].iloc[-1])
-                ah_vol = float(ah["Volume"].sum())
-                ah_high = float(ah["High"].max())
-                ah_low = float(ah["Low"].min())
+                last_ah_close = _safe_close(ah)
+                ah_vol = _safe_sum(ah, "Volume")
+                ah_high = _safe_max(ah, "High")
+                ah_low = _safe_min(ah, "Low")
 
                 # % move from last regular close to AH close
-                if not regular.empty:
-                    last_reg_close = float(regular["Close"].iloc[-1])
-                    ah_pct = ((last_ah_close - last_reg_close) / last_reg_close * 100
-                              if last_reg_close > 0 else None)
+                last_reg_close = _safe_close(regular)
+                if last_ah_close is not None and last_reg_close is not None and last_reg_close > 0:
+                    ah_pct = (last_ah_close - last_reg_close) / last_reg_close * 100
                 else:
                     ah_pct = None
 
                 row.update({
-                    "ah_close": round(last_ah_close, 4),
+                    "ah_close": round(last_ah_close, 4) if last_ah_close is not None else None,
                     "ah_volume": round(ah_vol, 0),
                     "ah_pct_move": round(ah_pct, 2) if ah_pct is not None else None,
-                    "last_ah_high": round(ah_high, 4),
-                    "last_ah_low": round(ah_low, 4),
+                    "last_ah_high": round(ah_high, 4) if ah_high is not None else None,
+                    "last_ah_low": round(ah_low, 4) if ah_low is not None else None,
                 })
             else:
                 row.update({
@@ -192,19 +230,18 @@ def compute_extended_hours_metrics(
 
             # Pre-market: last session's open and volume
             if not pm.empty:
-                last_pm_open = float(pm["Open"].iloc[-1])
-                pm_vol = float(pm["Volume"].sum())
+                last_pm_open = _safe_float_val(pm, "Open")
+                pm_vol = _safe_sum(pm, "Volume")
 
                 # % move from previous regular close to PM open
-                if not regular.empty:
-                    last_reg_close = float(regular["Close"].iloc[-1])
-                    pm_pct = ((last_pm_open - last_reg_close) / last_reg_close * 100
-                              if last_reg_close > 0 else None)
+                last_reg_close = _safe_close(regular)
+                if last_pm_open is not None and last_reg_close is not None and last_reg_close > 0:
+                    pm_pct = (last_pm_open - last_reg_close) / last_reg_close * 100
                 else:
                     pm_pct = None
 
                 row.update({
-                    "pm_open": round(last_pm_open, 4),
+                    "pm_open": round(last_pm_open, 4) if last_pm_open is not None else None,
                     "pm_volume": round(pm_vol, 0),
                     "pm_pct_move": round(pm_pct, 2) if pm_pct is not None else None,
                 })
