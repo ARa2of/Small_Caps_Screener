@@ -5,7 +5,7 @@ You are acting as a micro-cap/small-cap catalyst swing trading analyst.
 A Python screener pipeline has just run and produced the data below.
 Your job is to help me (the trader) make sense of it.
 
-The data is from: 2026-08-23 16:14
+The data is from: 2026-08-23 16:47
 
 WHAT YOU HAVE:
 - A scored list of US stocks ($1-$20, micro/small-cap) that passed
@@ -40,19 +40,20 @@ RULES:
   QUICK STATS
 ================================================================================
 
-  Total stocks scanned: 69
+  Total stocks scanned: 81
     Strong: 3
-    Moderate: 28
-    Watch: 33
-    Avoid: 5
+    Moderate: 29
+    Watch: 42
+    Avoid: 7
   Catalyst Timing:
-    Early: 18
+    Early: 22
     Moved: 3
     Late Entry: 6
-    Late Entry — Priced In: 3
-    N/A: 39
-  Stocks with risk flags: 2
+    Late Entry — Priced In: 4
+    N/A: 46
+  Stocks with risk flags: 3
     BRR: dilution_risk
+    SAFX: dilution_risk
     SEV: dilution_risk
 
 ================================================================================
@@ -591,6 +592,26 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
     AH Range: $4.03 - $4.30
     PM Open: $3.90 | PM Vol: 0 | PM Move: -3.23%
 
+--- GOSS ---
+  Tier: Moderate
+  Composite Score: 4.93
+  Catalyst Score (raw): 1.60
+  RVOL Multiplier: 1.83x
+  Technical Score: 2.00
+  Timing Penalty: 0.00 pts
+  Timing Tag: Early
+  % Since Catalyst: -8.8%
+  Risk Flags: 
+  Close: $0.16
+  RVOL: 2.75x
+  RSI: 44.5
+  Catalyst Events: 2026-08-21 8-K (material_event, +1.6pts) | 2026-08-13 8-K (material_event, +0.0pts)
+  Technical Notes: trend_alignment +0, rsi_sweet_spot +2
+  Extended Hours:
+    AH Close: $0.16 | AH Vol: 0 | AH Move: 0.39%
+    AH Range: $0.14 - $0.16
+    PM Open: $0.17 | PM Vol: 0 | PM Move: 7.36%
+
 --- BTCS ---
   Tier: Moderate
   Composite Score: 4.80
@@ -767,6 +788,47 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
     AH Range: $4.07 - $5.15
     PM Open: $5.21 | PM Vol: 0 | PM Move: 21.87%
 
+--- FLUX ---
+  Tier: Watch
+  Composite Score: 3.69
+  Catalyst Score (raw): 1.40
+  RVOL Multiplier: 1.21x
+  Technical Score: 2.00
+  Timing Penalty: 0.00 pts
+  Timing Tag: Early
+  % Since Catalyst: -27.0%
+  Risk Flags: 
+  Close: $0.60
+  RVOL: 1.81x
+  RSI: 46.3
+  Catalyst Events: 2026-08-20 8-K (material_event, +1.4pts)
+  Technical Notes: trend_alignment +0, rsi_sweet_spot +2
+  Extended Hours:
+    AH Close: $0.60 | AH Vol: 0 | AH Move: 0.92%
+    AH Range: $0.58 - $1.16
+    PM Open: $0.66 | PM Vol: 0 | PM Move: 10.03%
+
+--- HOWL ---
+  Tier: Watch
+  Composite Score: 3.00
+  Catalyst Score (raw): 3.00
+  RVOL Multiplier: 2.00x
+  Technical Score: 1.00
+  Timing Penalty: -4.00 pts
+  Timing Tag: Late Entry — Priced In
+  % Since Catalyst: 102.8%
+  Risk Flags: 
+  Close: $0.87
+  RVOL: 15.96x
+  RSI: 86.1
+  Catalyst Events: 2026-08-21 8-K (material_event, +1.6pts) | 2026-08-20 8-K (material_event, +1.4pts)
+  Technical Notes: trend_alignment +3, rsi_overbought -2
+  Extended Hours:
+    AH Close: $0.83 | AH Vol: 0 | AH Move: -5.66%
+    AH Range: $0.40 - $1.00
+    PM Open: $1.00 | PM Vol: 0 | PM Move: 14.08%
+    >> AH SELLOFF: -5.7% — caution, possible negative catalyst reaction
+
 --- LSTA ---
   Tier: Watch
   Composite Score: 3.00
@@ -824,6 +886,84 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
     AH Close: $1.84 | AH Vol: 0 | AH Move: 1.10%
     AH Range: $1.61 - $1.88
     PM Open: $1.80 | PM Vol: 0 | PM Move: -1.10%
+
+--- LGO ---
+  Tier: Watch
+  Composite Score: 3.00
+  Catalyst Score (raw): 0.00
+  RVOL Multiplier: 2.00x
+  Technical Score: 3.00
+  Timing Penalty: 0.00 pts
+  Timing Tag: N/A
+  % Since Catalyst: N/A%
+  Risk Flags: 
+  Close: $0.74
+  RVOL: 3.20x
+  RSI: 56.0
+  Technical Notes: trend_alignment +1, rsi_sweet_spot +2
+  Extended Hours:
+    AH Close: $0.74 | AH Vol: 0 | AH Move: -1.73%
+    AH Range: $0.60 - $0.80
+    PM Open: $0.73 | PM Vol: 0 | PM Move: -2.48%
+
+--- GUTS ---
+  Tier: Watch
+  Composite Score: 3.00
+  Catalyst Score (raw): 0.00
+  RVOL Multiplier: 1.85x
+  Technical Score: 3.00
+  Timing Penalty: 0.00 pts
+  Timing Tag: N/A
+  % Since Catalyst: N/A%
+  Risk Flags: 
+  Close: $0.78
+  RVOL: 2.78x
+  RSI: 58.2
+  Technical Notes: trend_alignment +1, rsi_sweet_spot +2
+  Extended Hours:
+    AH Close: $0.78 | AH Vol: 0 | AH Move: 0.41%
+    AH Range: $0.66 - $0.80
+    PM Open: $0.69 | PM Vol: 0 | PM Move: -11.31%
+
+--- DEFT ---
+  Tier: Watch
+  Composite Score: 3.00
+  Catalyst Score (raw): 0.00
+  RVOL Multiplier: 1.69x
+  Technical Score: 3.00
+  Timing Penalty: 0.00 pts
+  Timing Tag: N/A
+  % Since Catalyst: N/A%
+  Risk Flags: 
+  Close: $0.57
+  RVOL: 2.54x
+  RSI: 63.4
+  Technical Notes: trend_alignment +1, rsi_sweet_spot +2
+  Extended Hours:
+    AH Close: $0.62 | AH Vol: 0 | AH Move: 6.47%
+    AH Range: $0.43 - $0.62
+    PM Open: $0.58 | PM Vol: 0 | PM Move: 1.18%
+    >> SIGNIFICANT AH MOVE: +6.5% — catalyst may be driving after-hours interest
+
+--- QSI ---
+  Tier: Watch
+  Composite Score: 3.00
+  Catalyst Score (raw): 0.00
+  RVOL Multiplier: 1.67x
+  Technical Score: 3.00
+  Timing Penalty: 0.00 pts
+  Timing Tag: Early
+  % Since Catalyst: 5.7%
+  Risk Flags: 
+  Close: $0.83
+  RVOL: 2.50x
+  RSI: 55.2
+  Catalyst Events: 2026-08-13 8-K (material_event, +0.0pts)
+  Technical Notes: trend_alignment +1, rsi_sweet_spot +2
+  Extended Hours:
+    AH Close: $0.84 | AH Vol: 0 | AH Move: 0.00%
+    AH Range: $0.72 - $0.85
+    PM Open: $0.78 | PM Vol: 0 | PM Move: -6.57%
 
 --- AOMR ---
   Tier: Watch
@@ -1020,6 +1160,26 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
     AH Range: $8.53 - $9.12
     PM Open: $8.42 | PM Vol: 0 | PM Move: -4.80%
 
+--- KNRX ---
+  Tier: Watch
+  Composite Score: 2.00
+  Catalyst Score (raw): 0.00
+  RVOL Multiplier: 2.00x
+  Technical Score: 2.00
+  Timing Penalty: 0.00 pts
+  Timing Tag: N/A
+  % Since Catalyst: N/A%
+  Risk Flags: 
+  Close: $0.52
+  RVOL: 19.94x
+  RSI: 66.0
+  Technical Notes: trend_alignment +1, rsi_mild_high +1
+  Extended Hours:
+    AH Close: $0.44 | AH Vol: 0 | AH Move: -14.32%
+    AH Range: $0.33 - $0.62
+    PM Open: $0.36 | PM Vol: 0 | PM Move: -29.36%
+    >> AH SELLOFF: -14.3% — caution, possible negative catalyst reaction
+
 --- UPXI ---
   Tier: Watch
   Composite Score: 2.00
@@ -1057,6 +1217,25 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
     AH Close: $3.19 | AH Vol: 0 | AH Move: 1.59%
     AH Range: $2.52 - $3.19
     PM Open: $2.80 | PM Vol: 0 | PM Move: -10.83%
+
+--- HAIN ---
+  Tier: Watch
+  Composite Score: 2.00
+  Catalyst Score (raw): 0.00
+  RVOL Multiplier: 1.53x
+  Technical Score: 2.00
+  Timing Penalty: 0.00 pts
+  Timing Tag: N/A
+  % Since Catalyst: N/A%
+  Risk Flags: 
+  Close: $0.79
+  RVOL: 2.29x
+  RSI: 70.5
+  Technical Notes: trend_alignment +1, rsi_mild_high +1
+  Extended Hours:
+    AH Close: $0.81 | AH Vol: 0 | AH Move: 1.29%
+    AH Range: $0.52 - $0.81
+    PM Open: $0.62 | PM Vol: 0 | PM Move: -22.83%
 
 --- GGN ---
   Tier: Watch
@@ -1372,6 +1551,25 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
     AH Range: $3.50 - $4.14
     PM Open: $4.30 | PM Vol: 0 | PM Move: 18.13%
 
+--- LAB ---
+  Tier: Watch
+  Composite Score: 0.00
+  Catalyst Score (raw): 0.00
+  RVOL Multiplier: 1.34x
+  Technical Score: 0.00
+  Timing Penalty: 0.00 pts
+  Timing Tag: N/A
+  % Since Catalyst: N/A%
+  Risk Flags: 
+  Close: $0.67
+  RVOL: 2.01x
+  RSI: 35.0
+  Technical Notes: trend_alignment +0
+  Extended Hours:
+    AH Close: $0.67 | AH Vol: 0 | AH Move: 1.50%
+    AH Range: $0.64 - $0.71
+    PM Open: $0.70 | PM Vol: 0 | PM Move: 6.04%
+
 --- ZVIA ---
   Tier: Watch
   Composite Score: 0.00
@@ -1386,10 +1584,6 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RVOL: 1.50x
   RSI: 33.7
   Technical Notes: trend_alignment +0
-  Extended Hours:
-    AH Close: $1.31 | AH Vol: 0 | AH Move: 2.34%
-    AH Range: $1.27 - $1.35
-    PM Open: $1.38 | PM Vol: 0 | PM Move: 7.79%
 
 --- BRR ---
   Tier: Avoid
@@ -1431,6 +1625,46 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
     AH Range: $0.69 - $1.80
     PM Open: $1.34 | PM Vol: 0 | PM Move: -4.96%
     >> SIGNIFICANT AH MOVE: +14.9% — catalyst may be driving after-hours interest
+
+--- AIFC ---
+  Tier: Avoid
+  Composite Score: -1.00
+  Catalyst Score (raw): 0.00
+  RVOL Multiplier: 1.34x
+  Technical Score: -1.00
+  Timing Penalty: 0.00 pts
+  Timing Tag: N/A
+  % Since Catalyst: N/A%
+  Risk Flags: 
+  Close: $0.68
+  RVOL: 2.01x
+  RSI: 75.5
+  Technical Notes: trend_alignment +1, rsi_overbought -2
+  Extended Hours:
+    AH Close: $0.69 | AH Vol: 0 | AH Move: 1.65%
+    AH Range: $0.42 - $0.70
+    PM Open: $0.65 | PM Vol: 0 | PM Move: -4.98%
+
+--- SAFX ---
+  Tier: Avoid
+  Composite Score: -1.48
+  Catalyst Score (raw): -1.40
+  RVOL Multiplier: 1.06x
+  Technical Score: 0.00
+  Timing Penalty: 0.00 pts
+  Timing Tag: Early
+  % Since Catalyst: -23.0%
+  Risk Flags: dilution_risk
+  Close: $0.32
+  RVOL: 1.59x
+  RSI: 36.5
+  Catalyst Events: 2026-08-19 S-1 (dilution_risk, -2.4pts) | 2026-08-18 8-K (material_event, +1.0pts)
+  Technical Notes: trend_alignment +0
+  Extended Hours:
+    AH Close: $0.35 | AH Vol: 0 | AH Move: 5.24%
+    AH Range: $0.33 - $0.45
+    PM Open: $0.36 | PM Vol: 0 | PM Move: 8.50%
+    >> SIGNIFICANT AH MOVE: +5.2% — catalyst may be driving after-hours interest
 
 --- SEV ---
   Tier: Avoid
