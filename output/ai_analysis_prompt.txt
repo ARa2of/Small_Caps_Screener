@@ -5,7 +5,7 @@ You are acting as a micro-cap/small-cap catalyst swing trading analyst.
 A Python screener pipeline has just run and produced the data below.
 Your job is to help me (the trader) make sense of it.
 
-The data is from: 2026-08-23 14:43
+The data is from: 2026-08-23 16:14
 
 WHAT YOU HAVE:
 - A scored list of US stocks ($1-$20, micro/small-cap) that passed
@@ -119,6 +119,18 @@ VOLATILITY RANGE (statistical, NOT a prediction):
   - 1-SD 3-month price range based on historical daily log-return volatility
   - "Based on this stock's volatility, ~68% of 3-month outcomes fall within $X-$Y"
   - Also shows ATR-based range as a secondary reference
+
+EXTENDED HOURS DATA (after-hours / pre-market):
+  - Intraday data (5-min bars) with prepost=True captures AH (4PM-8PM ET) and PM (4AM-9:30AM ET) sessions
+  - AH Close: last after-hours close price (regular close + AH session activity)
+  - AH % Move: % change from last regular close to AH close
+  - AH Volume: total volume across all AH sessions in last 5 days
+  - AH Range: highest/lowest prices during AH sessions
+  - PM Open: last pre-market open price
+  - PM % Move: % change from previous regular close to PM open
+  - WHY THIS MATTERS: SEC filings (8-K, earnings) are released after market close. AH volume/price action
+    shows institutional/smart money reacting to catalysts before the next regular session opens.
+    A large AH move on high volume = the catalyst is being actively traded, not just filed.
 ================================================================================
   SCREENER OUTPUT: TODAY'S SCORED STOCKS
 ================================================================================
@@ -127,7 +139,9 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
          TIMING_PENALTY | TIMING_TAG | %_SINCE_CATALYST | RISK_FLAGS |
          CLOSE | RVOL | RSI | CATALYST_EVENTS | TECHNICAL_NOTES |
          PS_RATIO | PB_RATIO | EV_EBITDA | ANALYST_TARGET | GRAHAM_NUMBER |
-         FAIR_VALUE_NOTE | VOL_3MO_LOWER | VOL_3MO_UPPER | ANN_VOL%
+         FAIR_VALUE_NOTE | VOL_3MO_LOWER | VOL_3MO_UPPER | ANN_VOL% |
+         AH_CLOSE | AH_VOLUME | AH_%_MOVE | PM_OPEN | PM_VOLUME | PM_%_MOVE |
+         AH_HIGH | AH_LOW
 
 --- SDOT ---
   Tier: Strong
@@ -144,6 +158,10 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RSI: 48.2
   Catalyst Events: 2026-08-21 8-K (material_event, +1.6pts) | 2026-08-20 8-K (material_event, +1.4pts) | 2026-08-18 8-K (material_event, +1.0pts) | 2026-08-14 8-K (material_event, +0.2pts)
   Technical Notes: trend_alignment +1, rsi_sweet_spot +2
+  Extended Hours:
+    AH Close: $13.70 | AH Vol: 0 | AH Move: 3.51%
+    AH Range: $8.25 - $16.40
+    PM Open: $8.29 | PM Vol: 0 | PM Move: -37.36%
 
 --- PMI ---
   Tier: Strong
@@ -160,6 +178,11 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RSI: 54.8
   Catalyst Events: 2026-08-20 8-K (material_event, +1.4pts)
   Technical Notes: trend_alignment +4, rsi_sweet_spot +2
+  Extended Hours:
+    AH Close: $4.71 | AH Vol: 0 | AH Move: 46.25%
+    AH Range: $3.03 - $5.20
+    PM Open: $2.78 | PM Vol: 0 | PM Move: -13.74%
+    >> SIGNIFICANT AH MOVE: +46.2% — catalyst may be driving after-hours interest
 
 --- CEPO ---
   Tier: Strong
@@ -176,6 +199,10 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RSI: 64.6
   Catalyst Events: 2026-08-20 8-K (material_event, +1.4pts)
   Technical Notes: trend_alignment +4, rsi_sweet_spot +2
+  Extended Hours:
+    AH Close: $10.81 | AH Vol: 0 | AH Move: -0.00%
+    AH Range: $10.67 - $10.83
+    PM Open: $10.80 | PM Vol: 0 | PM Move: -0.09%
 
 --- PRQR ---
   Tier: Moderate
@@ -191,6 +218,10 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RVOL: 0.84x
   RSI: 73.4
   Technical Notes: trend_alignment +4, golden_cross +2, rsi_mild_high +1
+  Extended Hours:
+    AH Close: $2.34 | AH Vol: 0 | AH Move: 0.21%
+    AH Range: $1.90 - $2.43
+    PM Open: $2.33 | PM Vol: 0 | PM Move: -0.21%
 
 --- EPSN ---
   Tier: Moderate
@@ -207,6 +238,10 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RSI: 49.5
   Catalyst Events: 2026-08-18 8-K (material_event, +1.0pts) | 2026-08-13 8-K (material_event, +0.0pts)
   Technical Notes: trend_alignment +3, rsi_sweet_spot +2
+  Extended Hours:
+    AH Close: $5.60 | AH Vol: 0 | AH Move: 0.18%
+    AH Range: $5.58 - $5.72
+    PM Open: $5.65 | PM Vol: 0 | PM Move: 1.07%
 
 --- HHS ---
   Tier: Moderate
@@ -223,6 +258,10 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RSI: 66.6
   Catalyst Events: 2026-08-19 8-K (material_event, +1.2pts)
   Technical Notes: trend_alignment +3, rsi_mild_high +1
+  Extended Hours:
+    AH Close: $3.68 | AH Vol: 0 | AH Move: 0.03%
+    AH Range: $3.61 - $4.21
+    PM Open: $3.90 | PM Vol: 0 | PM Move: 5.98%
 
 --- JUNS ---
   Tier: Moderate
@@ -238,6 +277,10 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RVOL: 12.43x
   RSI: 58.1
   Technical Notes: trend_alignment +4, rsi_sweet_spot +2
+  Extended Hours:
+    AH Close: $6.12 | AH Vol: 0 | AH Move: -2.55%
+    AH Range: $4.78 - $6.78
+    PM Open: $8.61 | PM Vol: 0 | PM Move: 37.10%
 
 --- MRBK ---
   Tier: Moderate
@@ -253,6 +296,10 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RVOL: 4.05x
   RSI: 52.7
   Technical Notes: trend_alignment +4, rsi_sweet_spot +2
+  Extended Hours:
+    AH Close: $19.89 | AH Vol: 0 | AH Move: 0.40%
+    AH Range: $19.59 - $20.32
+    PM Open: $19.51 | PM Vol: 0 | PM Move: -1.51%
 
 --- LOCO ---
   Tier: Moderate
@@ -268,6 +315,10 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RVOL: 2.72x
   RSI: 53.7
   Technical Notes: trend_alignment +4, rsi_sweet_spot +2
+  Extended Hours:
+    AH Close: $16.03 | AH Vol: 0 | AH Move: 0.06%
+    AH Range: $15.28 - $16.12
+    PM Open: $15.52 | PM Vol: 0 | PM Move: -3.14%
 
 --- EFR ---
   Tier: Moderate
@@ -283,6 +334,10 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RVOL: 2.25x
   RSI: 52.6
   Technical Notes: trend_alignment +4, rsi_sweet_spot +2
+  Extended Hours:
+    AH Close: $10.62 | AH Vol: 0 | AH Move: 0.00%
+    AH Range: $10.52 - $10.66
+    PM Open: $10.52 | PM Vol: 0 | PM Move: -0.94%
 
 --- GGT ---
   Tier: Moderate
@@ -298,6 +353,10 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RVOL: 2.13x
   RSI: 58.1
   Technical Notes: trend_alignment +4, rsi_sweet_spot +2
+  Extended Hours:
+    AH Close: $4.13 | AH Vol: 0 | AH Move: -0.12%
+    AH Range: $4.11 - $4.18
+    PM Open: $4.12 | PM Vol: 0 | PM Move: -0.37%
 
 --- LXFR ---
   Tier: Moderate
@@ -313,6 +372,10 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RVOL: 1.74x
   RSI: 55.3
   Technical Notes: trend_alignment +4, rsi_sweet_spot +2
+  Extended Hours:
+    AH Close: $17.20 | AH Vol: 0 | AH Move: -0.00%
+    AH Range: $17.10 - $17.20
+    PM Open: $17.12 | PM Vol: 0 | PM Move: -0.47%
 
 --- APUS ---
   Tier: Moderate
@@ -329,6 +392,10 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RSI: 42.7
   Catalyst Events: 2026-08-21 8-K (material_event, +1.6pts)
   Technical Notes: trend_alignment +0, rsi_sweet_spot +2
+  Extended Hours:
+    AH Close: $4.61 | AH Vol: 0 | AH Move: -4.46%
+    AH Range: $3.45 - $5.47
+    PM Open: $4.00 | PM Vol: 0 | PM Move: -17.10%
 
 --- ELME ---
   Tier: Moderate
@@ -345,6 +412,10 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RSI: 58.2
   Catalyst Events: 2026-08-20 8-K (material_event, +1.4pts) | 2026-08-14 8-K (material_event, +0.2pts)
   Technical Notes: trend_alignment +1, rsi_sweet_spot +2
+  Extended Hours:
+    AH Close: $1.69 | AH Vol: 0 | AH Move: 1.20%
+    AH Range: $1.61 - $1.69
+    PM Open: $1.68 | PM Vol: 0 | PM Move: 0.60%
 
 --- RZLT ---
   Tier: Moderate
@@ -360,6 +431,10 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RVOL: 4.77x
   RSI: 60.4
   Technical Notes: trend_alignment +3, rsi_sweet_spot +2
+  Extended Hours:
+    AH Close: $5.16 | AH Vol: 0 | AH Move: 1.27%
+    AH Range: $4.59 - $5.18
+    PM Open: $4.68 | PM Vol: 0 | PM Move: -8.15%
 
 --- PZG ---
   Tier: Moderate
@@ -375,6 +450,10 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RVOL: 4.13x
   RSI: 62.8
   Technical Notes: trend_alignment +3, rsi_sweet_spot +2
+  Extended Hours:
+    AH Close: $1.60 | AH Vol: 0 | AH Move: 3.12%
+    AH Range: $1.42 - $1.60
+    PM Open: $1.56 | PM Vol: 0 | PM Move: 0.65%
 
 --- ZIP ---
   Tier: Moderate
@@ -391,6 +470,10 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RSI: 44.7
   Catalyst Events: 2026-08-21 4 (insider_other, +0.0pts)
   Technical Notes: trend_alignment +3, rsi_sweet_spot +2
+  Extended Hours:
+    AH Close: $4.27 | AH Vol: 0 | AH Move: 1.30%
+    AH Range: $4.19 - $5.28
+    PM Open: $5.24 | PM Vol: 0 | PM Move: 24.32%
 
 --- ATII ---
   Tier: Moderate
@@ -406,6 +489,10 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RVOL: 2.22x
   RSI: 49.0
   Technical Notes: trend_alignment +3, rsi_sweet_spot +2
+  Extended Hours:
+    AH Close: $10.65 | AH Vol: 0 | AH Move: -0.33%
+    AH Range: $10.62 - $10.73
+    PM Open: $10.62 | PM Vol: 0 | PM Move: -0.61%
 
 --- TII ---
   Tier: Moderate
@@ -421,6 +508,10 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RVOL: 2.08x
   RSI: 63.9
   Technical Notes: trend_alignment +3, rsi_sweet_spot +2
+  Extended Hours:
+    AH Close: $2.77 | AH Vol: 0 | AH Move: -1.77%
+    AH Range: $2.42 - $2.85
+    PM Open: $2.55 | PM Vol: 0 | PM Move: -9.57%
 
 --- NKTX ---
   Tier: Moderate
@@ -436,6 +527,10 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RVOL: 1.80x
   RSI: 58.5
   Technical Notes: trend_alignment +3, rsi_sweet_spot +2
+  Extended Hours:
+    AH Close: $2.61 | AH Vol: 0 | AH Move: -1.88%
+    AH Range: $2.33 - $2.71
+    PM Open: $2.47 | PM Vol: 0 | PM Move: -7.14%
 
 --- FHTX ---
   Tier: Moderate
@@ -451,6 +546,10 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RVOL: 1.78x
   RSI: 71.9
   Technical Notes: trend_alignment +4, rsi_mild_high +1
+  Extended Hours:
+    AH Close: $7.09 | AH Vol: 0 | AH Move: -0.14%
+    AH Range: $6.45 - $8.00
+    PM Open: $7.10 | PM Vol: 0 | PM Move: 0.00%
 
 --- CRBP ---
   Tier: Moderate
@@ -467,6 +566,10 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RSI: 61.6
   Catalyst Events: 2026-08-17 4 (insider_other, +0.0pts)
   Technical Notes: trend_alignment +3, rsi_sweet_spot +2
+  Extended Hours:
+    AH Close: $10.15 | AH Vol: 0 | AH Move: -2.12%
+    AH Range: $9.84 - $10.50
+    PM Open: $9.86 | PM Vol: 0 | PM Move: -4.92%
 
 --- XFOR ---
   Tier: Moderate
@@ -483,6 +586,10 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RSI: 46.7
   Catalyst Events: 2026-08-13 4 (insider_other, +0.0pts) | 2026-08-13 4 (insider_other, +0.0pts)
   Technical Notes: trend_alignment +3, rsi_sweet_spot +2
+  Extended Hours:
+    AH Close: $4.04 | AH Vol: 0 | AH Move: 0.25%
+    AH Range: $4.03 - $4.30
+    PM Open: $3.90 | PM Vol: 0 | PM Move: -3.23%
 
 --- BTCS ---
   Tier: Moderate
@@ -499,6 +606,11 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RSI: 69.9
   Catalyst Events: 2026-08-20 8-K (material_event, +1.4pts)
   Technical Notes: trend_alignment +1, rsi_mild_high +1
+  Extended Hours:
+    AH Close: $1.53 | AH Vol: 0 | AH Move: 12.50%
+    AH Range: $1.08 - $1.76
+    PM Open: $1.37 | PM Vol: 0 | PM Move: 0.62%
+    >> SIGNIFICANT AH MOVE: +12.5% — catalyst may be driving after-hours interest
 
 --- TG ---
   Tier: Moderate
@@ -515,6 +627,10 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RSI: 52.4
   Catalyst Events: 2026-08-21 4 (insider_other, +0.0pts) | 2026-08-21 4 (insider_other, +0.0pts) | 2026-08-21 4 (insider_other, +0.0pts) | 2026-08-20 8-K (material_event, +1.4pts) | 2026-08-19 4 (insider_other, +0.0pts)
   Technical Notes: trend_alignment +1, rsi_sweet_spot +2
+  Extended Hours:
+    AH Close: $7.97 | AH Vol: 0 | AH Move: 0.00%
+    AH Range: $7.80 - $8.00
+    PM Open: $7.77 | PM Vol: 0 | PM Move: -2.51%
 
 --- UAVS ---
   Tier: Moderate
@@ -531,6 +647,10 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RSI: 60.2
   Catalyst Events: 2026-08-21 4 (insider_other, +0.0pts) | 2026-08-21 4 (insider_other, +0.0pts) | 2026-08-19 4 (insider_other, +0.0pts) | 2026-08-14 8-K (material_event, +0.2pts)
   Technical Notes: trend_alignment +2, rsi_sweet_spot +2
+  Extended Hours:
+    AH Close: $1.01 | AH Vol: 0 | AH Move: -1.46%
+    AH Range: $0.85 - $1.03
+    PM Open: $0.92 | PM Vol: 0 | PM Move: -10.24%
 
 --- NOA ---
   Tier: Moderate
@@ -546,6 +666,10 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RVOL: 7.17x
   RSI: 51.2
   Technical Notes: trend_alignment +2, rsi_sweet_spot +2
+  Extended Hours:
+    AH Close: $14.04 | AH Vol: 0 | AH Move: 0.14%
+    AH Range: $13.55 - $14.22
+    PM Open: $14.02 | PM Vol: 0 | PM Move: 0.02%
 
 --- DHF ---
   Tier: Moderate
@@ -561,6 +685,10 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RVOL: 2.10x
   RSI: 42.6
   Technical Notes: trend_alignment +2, rsi_sweet_spot +2
+  Extended Hours:
+    AH Close: $2.35 | AH Vol: 0 | AH Move: -0.04%
+    AH Range: $2.35 - $2.40
+    PM Open: $2.37 | PM Vol: 0 | PM Move: 0.81%
 
 --- ACIU ---
   Tier: Moderate
@@ -576,6 +704,10 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RVOL: 2.04x
   RSI: 70.7
   Technical Notes: trend_alignment +3, rsi_mild_high +1
+  Extended Hours:
+    AH Close: $2.83 | AH Vol: 0 | AH Move: -2.58%
+    AH Range: $2.53 - $2.95
+    PM Open: $2.63 | PM Vol: 0 | PM Move: -9.47%
 
 --- ENTA ---
   Tier: Moderate
@@ -591,6 +723,10 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RVOL: 1.78x
   RSI: 52.5
   Technical Notes: trend_alignment +2, rsi_sweet_spot +2
+  Extended Hours:
+    AH Close: $13.47 | AH Vol: 0 | AH Move: 0.22%
+    AH Range: $12.83 - $13.51
+    PM Open: $13.13 | PM Vol: 0 | PM Move: -2.31%
 
 --- OSUR ---
   Tier: Moderate
@@ -606,6 +742,10 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RVOL: 1.64x
   RSI: 47.3
   Technical Notes: trend_alignment +2, rsi_sweet_spot +2
+  Extended Hours:
+    AH Close: $3.88 | AH Vol: 0 | AH Move: -0.00%
+    AH Range: $3.69 - $3.88
+    PM Open: $3.70 | PM Vol: 0 | PM Move: -4.64%
 
 --- SMTK ---
   Tier: Watch
@@ -622,6 +762,10 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RSI: 30.4
   Catalyst Events: 2026-08-21 8-K (material_event, +1.6pts) | 2026-08-19 8-K (material_event, +1.2pts)
   Technical Notes: trend_alignment +0
+  Extended Hours:
+    AH Close: $4.18 | AH Vol: 0 | AH Move: -2.22%
+    AH Range: $4.07 - $5.15
+    PM Open: $5.21 | PM Vol: 0 | PM Move: 21.87%
 
 --- LSTA ---
   Tier: Watch
@@ -637,6 +781,11 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RVOL: 15.62x
   RSI: 48.2
   Technical Notes: trend_alignment +1, rsi_sweet_spot +2
+  Extended Hours:
+    AH Close: $1.66 | AH Vol: 0 | AH Move: 7.44%
+    AH Range: $1.06 - $1.66
+    PM Open: $1.05 | PM Vol: 0 | PM Move: -32.04%
+    >> SIGNIFICANT AH MOVE: +7.4% — catalyst may be driving after-hours interest
 
 --- SDEV ---
   Tier: Watch
@@ -652,6 +801,10 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RVOL: 13.47x
   RSI: 54.3
   Technical Notes: trend_alignment +1, rsi_sweet_spot +2
+  Extended Hours:
+    AH Close: $1.14 | AH Vol: 0 | AH Move: 0.88%
+    AH Range: $0.92 - $1.52
+    PM Open: $1.24 | PM Vol: 0 | PM Move: 9.73%
 
 --- HOLO ---
   Tier: Watch
@@ -667,6 +820,10 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RVOL: 5.61x
   RSI: 63.0
   Technical Notes: trend_alignment +1, rsi_sweet_spot +2
+  Extended Hours:
+    AH Close: $1.84 | AH Vol: 0 | AH Move: 1.10%
+    AH Range: $1.61 - $1.88
+    PM Open: $1.80 | PM Vol: 0 | PM Move: -1.10%
 
 --- AOMR ---
   Tier: Watch
@@ -683,6 +840,10 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RSI: 37.6
   Catalyst Events: 2026-08-18 4 (insider_other, +0.0pts)
   Technical Notes: trend_alignment +3
+  Extended Hours:
+    AH Close: $8.32 | AH Vol: 0 | AH Move: 0.92%
+    AH Range: $8.24 - $9.03
+    PM Open: $8.47 | PM Vol: 0 | PM Move: 2.73%
 
 --- PLG ---
   Tier: Watch
@@ -698,6 +859,10 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RVOL: 1.77x
   RSI: 65.2
   Technical Notes: trend_alignment +2, rsi_mild_high +1
+  Extended Hours:
+    AH Close: $1.65 | AH Vol: 0 | AH Move: 0.01%
+    AH Range: $1.42 - $1.69
+    PM Open: $1.56 | PM Vol: 0 | PM Move: -5.45%
 
 --- RXST ---
   Tier: Watch
@@ -713,6 +878,10 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RVOL: 1.71x
   RSI: 52.1
   Technical Notes: trend_alignment +1, rsi_sweet_spot +2
+  Extended Hours:
+    AH Close: $6.27 | AH Vol: 0 | AH Move: 0.24%
+    AH Range: $6.09 - $6.48
+    PM Open: $6.11 | PM Vol: 0 | PM Move: -2.32%
 
 --- NMG ---
   Tier: Watch
@@ -728,6 +897,10 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RVOL: 1.63x
   RSI: 56.4
   Technical Notes: trend_alignment +1, rsi_sweet_spot +2
+  Extended Hours:
+    AH Close: $1.51 | AH Vol: 0 | AH Move: 1.00%
+    AH Range: $1.37 - $1.51
+    PM Open: $1.40 | PM Vol: 0 | PM Move: -6.35%
 
 --- SPOK ---
   Tier: Watch
@@ -743,6 +916,10 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RVOL: 1.63x
   RSI: 40.7
   Technical Notes: trend_alignment +1, rsi_sweet_spot +2
+  Extended Hours:
+    AH Close: $10.38 | AH Vol: 0 | AH Move: 0.79%
+    AH Range: $10.31 - $11.10
+    PM Open: $10.44 | PM Vol: 0 | PM Move: 1.36%
 
 --- JFB ---
   Tier: Watch
@@ -758,6 +935,10 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RVOL: 1.53x
   RSI: 53.5
   Technical Notes: trend_alignment +1, rsi_sweet_spot +2
+  Extended Hours:
+    AH Close: $4.54 | AH Vol: 0 | AH Move: 1.34%
+    AH Range: $4.03 - $4.80
+    PM Open: $4.49 | PM Vol: 0 | PM Move: 0.22%
 
 --- PROK ---
   Tier: Watch
@@ -774,6 +955,10 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RSI: 53.3
   Catalyst Events: 2026-08-20 4 (insider_other, +0.0pts)
   Technical Notes: trend_alignment +1, rsi_sweet_spot +2
+  Extended Hours:
+    AH Close: $1.59 | AH Vol: 0 | AH Move: -1.85%
+    AH Range: $1.38 - $1.63
+    PM Open: $1.43 | PM Vol: 0 | PM Move: -11.73%
 
 --- BKKT ---
   Tier: Watch
@@ -790,6 +975,10 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RSI: 59.5
   Catalyst Events: 2026-08-19 4 (insider_other, +0.0pts) | 2026-08-17 8-K (material_event, +0.8pts)
   Technical Notes: trend_alignment +1, rsi_sweet_spot +2
+  Extended Hours:
+    AH Close: $8.75 | AH Vol: 0 | AH Move: 1.98%
+    AH Range: $6.92 - $8.75
+    PM Open: $7.90 | PM Vol: 0 | PM Move: -7.97%
 
 --- BIRD ---
   Tier: Watch
@@ -806,6 +995,10 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RSI: 54.0
   Catalyst Events: 2026-08-19 8-K (material_event, +1.2pts)
   Technical Notes: trend_alignment +1, rsi_sweet_spot +2
+  Extended Hours:
+    AH Close: $2.34 | AH Vol: 0 | AH Move: -3.70%
+    AH Range: $2.31 - $2.56
+    PM Open: $2.25 | PM Vol: 0 | PM Move: -7.41%
 
 --- VMD ---
   Tier: Watch
@@ -822,6 +1015,10 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RSI: 28.1
   Catalyst Events: 2026-08-20 8-K (material_event, +1.4pts) | 2026-08-19 4 (insider_other, +0.0pts) | 2026-08-19 4 (insider_other, +0.0pts) | 2026-08-19 4 (insider_other, +0.0pts) | 2026-08-19 4 (insider_other, +0.0pts)
   Technical Notes: trend_alignment +1, rsi_weak -1
+  Extended Hours:
+    AH Close: $8.90 | AH Vol: 0 | AH Move: 0.62%
+    AH Range: $8.53 - $9.12
+    PM Open: $8.42 | PM Vol: 0 | PM Move: -4.80%
 
 --- UPXI ---
   Tier: Watch
@@ -837,6 +1034,10 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RVOL: 4.45x
   RSI: 68.3
   Technical Notes: trend_alignment +1, rsi_mild_high +1
+  Extended Hours:
+    AH Close: $1.07 | AH Vol: 0 | AH Move: -0.47%
+    AH Range: $0.79 - $1.12
+    PM Open: $0.95 | PM Vol: 0 | PM Move: -11.53%
 
 --- BNC ---
   Tier: Watch
@@ -852,6 +1053,10 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RVOL: 3.58x
   RSI: 67.8
   Technical Notes: trend_alignment +1, rsi_mild_high +1
+  Extended Hours:
+    AH Close: $3.19 | AH Vol: 0 | AH Move: 1.59%
+    AH Range: $2.52 - $3.19
+    PM Open: $2.80 | PM Vol: 0 | PM Move: -10.83%
 
 --- GGN ---
   Tier: Watch
@@ -867,6 +1072,10 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RVOL: 1.94x
   RSI: 81.8
   Technical Notes: trend_alignment +4, rsi_overbought -2
+  Extended Hours:
+    AH Close: $5.65 | AH Vol: 0 | AH Move: -0.41%
+    AH Range: $5.33 - $5.68
+    PM Open: $5.65 | PM Vol: 0 | PM Move: -0.41%
 
 --- TSI ---
   Tier: Watch
@@ -882,6 +1091,10 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RVOL: 1.88x
   RSI: 42.5
   Technical Notes: trend_alignment +0, rsi_sweet_spot +2
+  Extended Hours:
+    AH Close: $4.36 | AH Vol: 0 | AH Move: -0.00%
+    AH Range: $4.36 - $4.40
+    PM Open: $4.38 | PM Vol: 0 | PM Move: 0.34%
 
 --- ABOS ---
   Tier: Watch
@@ -897,6 +1110,10 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RVOL: 1.79x
   RSI: 77.8
   Technical Notes: trend_alignment +4, rsi_overbought -2
+  Extended Hours:
+    AH Close: $3.22 | AH Vol: 0 | AH Move: 1.84%
+    AH Range: $2.66 - $3.29
+    PM Open: $3.15 | PM Vol: 0 | PM Move: -0.47%
 
 --- SIGA ---
   Tier: Watch
@@ -912,6 +1129,10 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RVOL: 1.77x
   RSI: 42.8
   Technical Notes: trend_alignment +0, rsi_sweet_spot +2
+  Extended Hours:
+    AH Close: $3.05 | AH Vol: 0 | AH Move: 0.00%
+    AH Range: $2.91 - $3.15
+    PM Open: $2.97 | PM Vol: 0 | PM Move: -2.62%
 
 --- OEC ---
   Tier: Watch
@@ -927,6 +1148,10 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RVOL: 1.58x
   RSI: 41.7
   Technical Notes: trend_alignment +0, rsi_sweet_spot +2
+  Extended Hours:
+    AH Close: $6.12 | AH Vol: 0 | AH Move: -0.16%
+    AH Range: $6.05 - $6.33
+    PM Open: $6.01 | PM Vol: 0 | PM Move: -1.96%
 
 --- ANY ---
   Tier: Watch
@@ -943,6 +1168,10 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RSI: 62.7
   Catalyst Events: 2026-08-14 8-K (material_event, +0.2pts)
   Technical Notes: trend_alignment +1, rsi_sweet_spot +2
+  Extended Hours:
+    AH Close: $2.55 | AH Vol: 0 | AH Move: -2.47%
+    AH Range: $1.94 - $2.69
+    PM Open: $2.03 | PM Vol: 0 | PM Move: -22.36%
 
 --- HYPD ---
   Tier: Watch
@@ -959,6 +1188,11 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RSI: 62.2
   Catalyst Events: 2026-08-18 4 (insider_other, +0.0pts)
   Technical Notes: trend_alignment +1, rsi_sweet_spot +2
+  Extended Hours:
+    AH Close: $3.39 | AH Vol: 0 | AH Move: 7.01%
+    AH Range: $2.70 - $3.49
+    PM Open: $3.30 | PM Vol: 0 | PM Move: 4.10%
+    >> SIGNIFICANT AH MOVE: +7.0% — catalyst may be driving after-hours interest
 
 --- FWDI ---
   Tier: Watch
@@ -975,6 +1209,10 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RSI: 67.9
   Catalyst Events: 2026-08-17 4 (insider_other, +0.0pts) | 2026-08-17 4 (insider_other, +0.0pts) | 2026-08-17 4 (insider_other, +0.0pts)
   Technical Notes: trend_alignment +2, rsi_mild_high +1
+  Extended Hours:
+    AH Close: $5.38 | AH Vol: 0 | AH Move: 4.80%
+    AH Range: $4.10 - $5.55
+    PM Open: $5.28 | PM Vol: 0 | PM Move: 2.82%
 
 --- ISPC ---
   Tier: Watch
@@ -991,6 +1229,11 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RSI: 34.1
   Catalyst Events: 2026-08-14 8-K (material_event, +0.2pts)
   Technical Notes: trend_alignment +0
+  Extended Hours:
+    AH Close: $1.59 | AH Vol: 0 | AH Move: -7.01%
+    AH Range: $1.59 - $3.14
+    PM Open: $1.90 | PM Vol: 0 | PM Move: 10.97%
+    >> AH SELLOFF: -7.0% — caution, possible negative catalyst reaction
 
 --- ADXN ---
   Tier: Watch
@@ -1006,6 +1249,11 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RVOL: 19.30x
   RSI: 35.0
   Technical Notes: trend_alignment +0
+  Extended Hours:
+    AH Close: $4.61 | AH Vol: 0 | AH Move: -7.43%
+    AH Range: $3.90 - $5.80
+    PM Open: $5.76 | PM Vol: 0 | PM Move: 15.66%
+    >> AH SELLOFF: -7.4% — caution, possible negative catalyst reaction
 
 --- GDC ---
   Tier: Watch
@@ -1021,6 +1269,10 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RVOL: 6.44x
   RSI: 31.7
   Technical Notes: trend_alignment +0
+  Extended Hours:
+    AH Close: $1.51 | AH Vol: 0 | AH Move: -2.58%
+    AH Range: $1.47 - $2.49
+    PM Open: $2.52 | PM Vol: 0 | PM Move: 62.68%
 
 --- GOF ---
   Tier: Watch
@@ -1036,6 +1288,10 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RVOL: 4.79x
   RSI: 30.8
   Technical Notes: trend_alignment +0
+  Extended Hours:
+    AH Close: $9.64 | AH Vol: 0 | AH Move: -0.48%
+    AH Range: $9.35 - $10.41
+    PM Open: $9.18 | PM Vol: 0 | PM Move: -5.26%
 
 --- BTOG ---
   Tier: Watch
@@ -1051,6 +1307,11 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RVOL: 4.28x
   RSI: 36.3
   Technical Notes: trend_alignment +0
+  Extended Hours:
+    AH Close: $4.00 | AH Vol: 0 | AH Move: 7.81%
+    AH Range: $3.46 - $6.85
+    PM Open: $3.79 | PM Vol: 0 | PM Move: 2.16%
+    >> SIGNIFICANT AH MOVE: +7.8% — catalyst may be driving after-hours interest
 
 --- HUYA ---
   Tier: Watch
@@ -1066,6 +1327,10 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RVOL: 3.50x
   RSI: 30.9
   Technical Notes: trend_alignment +0
+  Extended Hours:
+    AH Close: $2.19 | AH Vol: 0 | AH Move: 0.46%
+    AH Range: $2.15 - $2.32
+    PM Open: $2.20 | PM Vol: 0 | PM Move: 0.92%
 
 --- DFDV ---
   Tier: Watch
@@ -1082,6 +1347,10 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RSI: 74.8
   Catalyst Events: 2026-08-21 4 (insider_other, +0.0pts) | 2026-08-18 4 (insider_other, +0.0pts) | 2026-08-17 4 (insider_other, +0.0pts)
   Technical Notes: trend_alignment +1, rsi_mild_high +1
+  Extended Hours:
+    AH Close: $4.00 | AH Vol: 0 | AH Move: 1.65%
+    AH Range: $3.07 - $4.14
+    PM Open: $4.01 | PM Vol: 0 | PM Move: 1.91%
 
 --- ZSQR ---
   Tier: Watch
@@ -1098,6 +1367,10 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RSI: 34.2
   Catalyst Events: 2026-08-20 4 (insider_other, +0.0pts)
   Technical Notes: trend_alignment +0
+  Extended Hours:
+    AH Close: $3.71 | AH Vol: 0 | AH Move: 1.97%
+    AH Range: $3.50 - $4.14
+    PM Open: $4.30 | PM Vol: 0 | PM Move: 18.13%
 
 --- ZVIA ---
   Tier: Watch
@@ -1113,6 +1386,10 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RVOL: 1.50x
   RSI: 33.7
   Technical Notes: trend_alignment +0
+  Extended Hours:
+    AH Close: $1.31 | AH Vol: 0 | AH Move: 2.34%
+    AH Range: $1.27 - $1.35
+    PM Open: $1.38 | PM Vol: 0 | PM Move: 7.79%
 
 --- BRR ---
   Tier: Avoid
@@ -1129,6 +1406,10 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RSI: 64.3
   Catalyst Events: 2026-08-19 424B3 (dilution_risk, -2.4pts)
   Technical Notes: trend_alignment +2, rsi_sweet_spot +2
+  Extended Hours:
+    AH Close: $2.15 | AH Vol: 0 | AH Move: 0.23%
+    AH Range: $1.82 - $2.27
+    PM Open: $2.28 | PM Vol: 0 | PM Move: 6.29%
 
 --- CYPH ---
   Tier: Avoid
@@ -1145,6 +1426,11 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RSI: 85.3
   Catalyst Events: 2026-08-19 4 (insider_other, +0.0pts) | 2026-08-19 4 (insider_other, +0.0pts) | 2026-08-18 8-K (material_event, +1.0pts)
   Technical Notes: trend_alignment +3, rsi_overbought -2
+  Extended Hours:
+    AH Close: $1.62 | AH Vol: 0 | AH Move: 14.95%
+    AH Range: $0.69 - $1.80
+    PM Open: $1.34 | PM Vol: 0 | PM Move: -4.96%
+    >> SIGNIFICANT AH MOVE: +14.9% — catalyst may be driving after-hours interest
 
 --- SEV ---
   Tier: Avoid
@@ -1161,6 +1447,10 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RSI: 69.1
   Catalyst Events: 2026-08-20 8-K (material_event, +1.4pts) | 2026-08-20 424B4 (dilution_risk, -2.8pts) | 2026-08-20 4 (insider_other, +0.0pts) | 2026-08-20 8-K (material_event, +1.4pts) | 2026-08-18 S-1/A (dilution_ris
   Technical Notes: trend_alignment +1, rsi_mild_high +1
+  Extended Hours:
+    AH Close: $2.40 | AH Vol: 0 | AH Move: -2.83%
+    AH Range: $2.10 - $2.50
+    PM Open: $2.38 | PM Vol: 0 | PM Move: -3.64%
 
 --- BEEM ---
   Tier: Avoid
@@ -1177,6 +1467,10 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RSI: 80.9
   Catalyst Events: 2026-08-19 8-K (material_event, +1.2pts)
   Technical Notes: trend_alignment +2, rsi_overbought -2
+  Extended Hours:
+    AH Close: $1.54 | AH Vol: 0 | AH Move: -1.91%
+    AH Range: $1.13 - $1.77
+    PM Open: $1.36 | PM Vol: 0 | PM Move: -13.38%
 
 --- NAKA ---
   Tier: Avoid
@@ -1193,6 +1487,10 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   RSI: 78.4
   Catalyst Events: 2026-08-21 4 (insider_other, +0.0pts) | 2026-08-20 4 (insider_other, +0.0pts) | 2026-08-14 8-K (material_event, +0.2pts)
   Technical Notes: trend_alignment +2, rsi_overbought -2
+  Extended Hours:
+    AH Close: $7.37 | AH Vol: 0 | AH Move: 4.24%
+    AH Range: $4.98 - $7.46
+    PM Open: $6.64 | PM Vol: 0 | PM Move: -6.08%
 
 ================================================================================
   ANALYSIS INSTRUCTIONS FOR THE AI
@@ -1207,6 +1505,7 @@ screener data above, perform the following analysis:
    - Check what the SEC filing (8-K, Form 4, etc.) was actually about
    - Determine if the catalyst impact is POSITIVE, NEGATIVE, or NEUTRAL
    - Note if the stock has already reacted to the news (price move since filing)
+   - Check AH data: did the stock move in after-hours after the filing?
    - Flag any upcoming events (earnings, FDA decisions, etc.)
 
 2. CATALYST FRESHNESS ASSESSMENT
@@ -1215,6 +1514,14 @@ screener data above, perform the following analysis:
    - Is the timing_tag "Late Entry — Priced In"? → Stock moved 25%+, likely done
    - For "Early" stocks: is there a reason the catalyst HASN'T moved the stock yet?
      (low awareness, market-wide weakness, waiting for confirmation?)
+   - AH data adds context: a stock may look "Early" on regular hours but have a
+     large AH move — that's the catalyst working in real-time
+
+3. EXTENDED HOURS SIGNALS
+   - Check AH % Move for each stock with extended data
+   - AH move on HIGH AH volume = institutional reaction (reliable signal)
+   - AH move on LOW AH volume = low-liquidity noise (less reliable)
+   - If AH % is significantly different from regular day %, the market is repricing overnight
 
 3. FAIR VALUE CHECK (your judgment, not just the numbers)
    - The screener provides P/S, P/B, EV/EBITDA, analyst target, Graham number
@@ -1234,7 +1541,15 @@ screener data above, perform the following analysis:
    - High % since catalyst = chasing, giving back edge
    - Low RVOL = nobody's watching, exit may be hard
 
-6. RANKED SHORTLIST
+6. EXTENDED HOURS ANALYSIS (AH/PM data)
+   - AH % Move >= +5% on high volume = market is actively trading the catalyst
+   - AH % Move >= +10% = strong institutional reaction, likely to gap up at open
+   - AH % Move <= -5% = possible negative reaction to filing, caution
+   - PM % Move shows pre-market sentiment for today's session
+   - Compare AH volume to regular volume: high AH/regular ratio = smart money active
+   - AH data helps distinguish "filed but nobody noticed" from "filed and being traded"
+
+7. RANKED SHORTLIST
    Provide a ranked list of the top 5-8 stocks with:
    - 1-line thesis for each (why it's interesting)
    - Key risk for each
@@ -1268,6 +1583,9 @@ THEN ASK FOLLOW-UPS LIKE:
   - "Which stocks should I absolutely avoid and why?"
   - "Is the market environment good for small-cap catalyst plays right now?"
   - "Re-run with a focus on [specific criteria]"
+  - "Which stocks had the biggest after-hours moves? Are those moves justified?"
+  - "For stocks with AH data, is the AH volume significant relative to regular volume?"
+  - "Is the AH move likely to hold at the open, or is it a low-volume AH spike?"
 
 You can also just paste the Excel file (output/stage1_shortlist.xlsx)
 if you want the AI to see the full formatted data.
