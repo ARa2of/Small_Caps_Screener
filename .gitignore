@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environment
+venv/
+.venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Output (tracked via git add -f in workflow)
+# output/
+
+# AI memory (local only)
+ai_memory.json
+history.csv
+
+# Logs
+logs/
+*.log
+
+# Environment variables
+.env
+.env.local
+
+# V1 backup (local only)
+V1/
