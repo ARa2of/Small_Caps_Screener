@@ -2,12 +2,41 @@
 Technical indicator calculations: EMAs, SMAs, golden cross, RSI, ATR, RVOL.
 Operates on a single ticker's OHLCV DataFrame (as returned by yfinance),
 with columns: Open, High, Low, Close, Volume.
+
+Uses only pandas/numpy — no external TA libraries needed.
 """
 
+import numpy as np
 import pandas as pd
-import pandas_ta as ta
 
 from config import EMA_PERIODS, SMA_PERIODS, RSI_PERIOD, ATR_PERIOD
+
+
+def _ema(series: pd.Series, period: int) -> pd.Series:
+    return series.ewm(span=period, adjust=False).mean()
+
+
+def _sma(series: pd.Series, period: int) -> pd.Series:
+    return series.rolling(window=period).mean()
+
+
+def _rsi(close: pd.Series, period: int = 14) -> pd.Series:
+    delta = close.diff()
+    gain = delta.clip(lower=0)
+    loss = -delta.clip(upper=0)
+    avg_gain = gain.ewm(alpha=1 / period, min_periods=period).mean()
+    avg_loss = loss.ewm(alpha=1 / period, min_periods=period).mean()
+    rs = avg_gain / avg_loss
+    return 100 - (100 / (1 + rs))
+
+
+def _atr(high: pd.Series, low: pd.Series, close: pd.Series, period: int = 14) -> pd.Series:
+    prev_close = close.shift(1)
+    tr1 = high - low
+    tr2 = (high - prev_close).abs()
+    tr3 = (low - prev_close).abs()
+    tr = pd.concat([tr1, tr2, tr3], axis=1).max(axis=1)
+    return tr.ewm(alpha=1 / period, min_periods=period).mean()
 
 
 def add_indicators(df: pd.DataFrame) -> pd.DataFrame:
@@ -19,13 +48,13 @@ def add_indicators(df: pd.DataFrame) -> pd.DataFrame:
     out = df.copy()
 
     for p in EMA_PERIODS:
-        out[f"EMA{p}"] = ta.ema(out["Close"], length=p)
+        out[f"EMA{p}"] = _ema(out["Close"], p)
 
     for p in SMA_PERIODS:
-        out[f"SMA{p}"] = ta.sma(out["Close"], length=p)
+        out[f"SMA{p}"] = _sma(out["Close"], p)
 
-    out["RSI"] = ta.rsi(out["Close"], length=RSI_PERIOD)
-    out["ATR"] = ta.atr(out["High"], out["Low"], out["Close"], length=ATR_PERIOD)
+    out["RSI"] = _rsi(out["Close"], RSI_PERIOD)
+    out["ATR"] = _atr(out["High"], out["Low"], out["Close"], ATR_PERIOD)
     out["AvgVol20"] = out["Volume"].rolling(window=20).mean()
 
     return out
