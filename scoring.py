@@ -269,6 +269,15 @@ def build_scored_table(
             "close": srow.get("close"),
             "rvol": srow.get("rvol"),
             "rsi": srow.get("rsi"),
+            "ah_close": srow.get("ah_close"),
+            "ah_volume": srow.get("ah_volume"),
+            "ah_pct_move": srow.get("ah_pct_move"),
+            "pm_open": srow.get("pm_open"),
+            "pm_volume": srow.get("pm_volume"),
+            "pm_pct_move": srow.get("pm_pct_move"),
+            "last_ah_high": srow.get("last_ah_high"),
+            "last_ah_low": srow.get("last_ah_low"),
+            "has_extended_data": srow.get("has_extended_data", False),
         })
 
     result = pd.DataFrame(rows)

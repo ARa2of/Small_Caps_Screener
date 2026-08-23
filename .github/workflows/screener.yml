@@ -1,0 +1,43 @@
+name: US Small Caps Screener
+
+on:
+  schedule:
+    # UK time 4:00 PM - 11:30 PM, every 30 min, Mon-Fri
+    # BST (summer, UTC+1): 15:00-22:30 UTC
+    # GMT (winter, UTC+0): 16:00-23:30 UTC
+    # We schedule both ranges to cover both timezones
+    - cron: '0,30 15,16,17,18,19,20,21,22,23 * * 1-5'
+  workflow_dispatch:  # allows manual trigger
+
+permissions:
+  contents: write
+
+jobs:
+  run-screener:
+    runs-on: ubuntu-latest  # free GitHub-hosted runner
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run screener pipeline
+        run: python main.py
+
+      - name: Commit output files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add output/ -f
+          git diff --staged --quiet || git commit -m "Auto-update: $(date -u '+%Y-%m-%d %H:%M UTC')"
+          git push

@@ -140,5 +140,12 @@ FAIR_VALUE_MIN_SECTOR_SAMPLE = 3  # only show "vs sector" when ≥3 tickers shar
 VOLATILITY_RANGE_TRADING_DAYS = 63  # ~3 months of trading days
 VOLATILITY_RANGE_CONFIDENCE_SD = 1  # standard deviations (1 = ~68% probability band)
 
+# --- Extended hours (pre-market / after-hours) data ---
+EXTENDED_HOURS_ENABLED = True    # fetch AH/PM data for shortlisted tickers
+EXTENDED_HOURS_INTERVAL = "5m"   # intraday resolution for AH/PM extraction
+EXTENDED_HOURS_PERIOD = "5d"     # lookback for intraday (covers multiple AH sessions)
+EXTENDED_HOURS_BATCH_SIZE = 10   # yfinance intraday is slower, use smaller batches
+EXTENDED_HOURS_PAUSE_SEC = 2.0   # polite pause between intraday batches
+
 # --- AI prompt / report output ---
 AI_PROMPT_FILENAME = "ai_analysis_prompt.txt"

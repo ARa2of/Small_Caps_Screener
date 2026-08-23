@@ -97,6 +97,18 @@ VOLATILITY RANGE (statistical, NOT a prediction):
   - 1-SD 3-month price range based on historical daily log-return volatility
   - "Based on this stock's volatility, ~68% of 3-month outcomes fall within $X-$Y"
   - Also shows ATR-based range as a secondary reference
+
+EXTENDED HOURS DATA (after-hours / pre-market):
+  - Intraday data (5-min bars) with prepost=True captures AH (4PM-8PM ET) and PM (4AM-9:30AM ET) sessions
+  - AH Close: last after-hours close price (regular close + AH session activity)
+  - AH % Move: % change from last regular close to AH close
+  - AH Volume: total volume across all AH sessions in last 5 days
+  - AH Range: highest/lowest prices during AH sessions
+  - PM Open: last pre-market open price
+  - PM % Move: % change from previous regular close to PM open
+  - WHY THIS MATTERS: SEC filings (8-K, earnings) are released after market close. AH volume/price action
+    shows institutional/smart money reacting to catalysts before the next regular session opens.
+    A large AH move on high volume = the catalyst is being actively traded, not just filed.
 """
 
 
@@ -111,7 +123,9 @@ def _build_data_section(scored_df: pd.DataFrame) -> str:
         "         TIMING_PENALTY | TIMING_TAG | %_SINCE_CATALYST | RISK_FLAGS |",
         "         CLOSE | RVOL | RSI | CATALYST_EVENTS | TECHNICAL_NOTES |",
         "         PS_RATIO | PB_RATIO | EV_EBITDA | ANALYST_TARGET | GRAHAM_NUMBER |",
-        "         FAIR_VALUE_NOTE | VOL_3MO_LOWER | VOL_3MO_UPPER | ANN_VOL%",
+        "         FAIR_VALUE_NOTE | VOL_3MO_LOWER | VOL_3MO_UPPER | ANN_VOL% |",
+        "         AH_CLOSE | AH_VOLUME | AH_%_MOVE | PM_OPEN | PM_VOLUME | PM_%_MOVE |",
+        "         AH_HIGH | AH_LOW",
         "",
     ]
 
@@ -169,6 +183,34 @@ def _build_data_section(scored_df: pd.DataFrame) -> str:
         if vol_lo is not None and not pd.isna(vol_lo):
             lines.append(f"  3-Mo Vol Range: ${_fmt(vol_lo)} - ${_fmt(vol_hi)} (ann. {_fmt(ann_vol, 0)}%)")
 
+        # Extended hours (AH/PM) data
+        if row.get("has_extended_data"):
+            ah_close = row.get("ah_close")
+            ah_vol = row.get("ah_volume")
+            ah_pct = row.get("ah_pct_move")
+            pm_open = row.get("pm_open")
+            pm_vol = row.get("pm_volume")
+            pm_pct = row.get("pm_pct_move")
+            ah_hi = row.get("last_ah_high")
+            ah_lo = row.get("last_ah_low")
+
+            has_ah = ah_close is not None
+            has_pm = pm_open is not None
+
+            if has_ah or has_pm:
+                lines.append(f"  Extended Hours:")
+                if has_ah:
+                    lines.append(f"    AH Close: ${_fmt(ah_close)} | AH Vol: {_fmt(ah_vol, 0)} | AH Move: {_fmt(ah_pct, 2)}%")
+                    if ah_hi is not None and ah_lo is not None:
+                        lines.append(f"    AH Range: ${_fmt(ah_lo)} - ${_fmt(ah_hi)}")
+                if has_pm:
+                    lines.append(f"    PM Open: ${_fmt(pm_open)} | PM Vol: {_fmt(pm_vol, 0)} | PM Move: {_fmt(pm_pct, 2)}%")
+                if has_ah and ah_pct is not None and not pd.isna(ah_pct):
+                    if float(ah_pct) >= 5:
+                        lines.append(f"    >> SIGNIFICANT AH MOVE: +{_fmt(ah_pct, 1)}% — catalyst may be driving after-hours interest")
+                    elif float(ah_pct) <= -5:
+                        lines.append(f"    >> AH SELLOFF: {_fmt(ah_pct, 1)}% — caution, possible negative catalyst reaction")
+
         lines.append("")
 
     return "\n".join(lines)
@@ -189,6 +231,7 @@ screener data above, perform the following analysis:
    - Check what the SEC filing (8-K, Form 4, etc.) was actually about
    - Determine if the catalyst impact is POSITIVE, NEGATIVE, or NEUTRAL
    - Note if the stock has already reacted to the news (price move since filing)
+   - Check AH data: did the stock move in after-hours after the filing?
    - Flag any upcoming events (earnings, FDA decisions, etc.)
 
 2. CATALYST FRESHNESS ASSESSMENT
@@ -197,6 +240,14 @@ screener data above, perform the following analysis:
    - Is the timing_tag "Late Entry — Priced In"? → Stock moved 25%+, likely done
    - For "Early" stocks: is there a reason the catalyst HASN'T moved the stock yet?
      (low awareness, market-wide weakness, waiting for confirmation?)
+   - AH data adds context: a stock may look "Early" on regular hours but have a
+     large AH move — that's the catalyst working in real-time
+
+3. EXTENDED HOURS SIGNALS
+   - Check AH % Move for each stock with extended data
+   - AH move on HIGH AH volume = institutional reaction (reliable signal)
+   - AH move on LOW AH volume = low-liquidity noise (less reliable)
+   - If AH % is significantly different from regular day %, the market is repricing overnight
 
 3. FAIR VALUE CHECK (your judgment, not just the numbers)
    - The screener provides P/S, P/B, EV/EBITDA, analyst target, Graham number
@@ -216,7 +267,15 @@ screener data above, perform the following analysis:
    - High % since catalyst = chasing, giving back edge
    - Low RVOL = nobody's watching, exit may be hard
 
-6. RANKED SHORTLIST
+6. EXTENDED HOURS ANALYSIS (AH/PM data)
+   - AH % Move >= +5% on high volume = market is actively trading the catalyst
+   - AH % Move >= +10% = strong institutional reaction, likely to gap up at open
+   - AH % Move <= -5% = possible negative reaction to filing, caution
+   - PM % Move shows pre-market sentiment for today's session
+   - Compare AH volume to regular volume: high AH/regular ratio = smart money active
+   - AH data helps distinguish "filed but nobody noticed" from "filed and being traded"
+
+7. RANKED SHORTLIST
    Provide a ranked list of the top 5-8 stocks with:
    - 1-line thesis for each (why it's interesting)
    - Key risk for each
@@ -254,6 +313,9 @@ THEN ASK FOLLOW-UPS LIKE:
   - "Which stocks should I absolutely avoid and why?"
   - "Is the market environment good for small-cap catalyst plays right now?"
   - "Re-run with a focus on [specific criteria]"
+  - "Which stocks had the biggest after-hours moves? Are those moves justified?"
+  - "For stocks with AH data, is the AH volume significant relative to regular volume?"
+  - "Is the AH move likely to hold at the open, or is it a low-volume AH spike?"
 
 You can also just paste the Excel file (output/stage1_shortlist.xlsx)
 if you want the AI to see the full formatted data.

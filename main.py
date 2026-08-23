@@ -27,6 +27,7 @@ from sec_edgar import scan_shortlist_for_filings
 from scoring import build_scored_table
 from fair_value import compute_fair_value
 from volatility_range import compute_all_volatility_ranges
+from extended_hours import compute_extended_hours_metrics
 from excel_export import export_to_excel
 from report_generator import export_ai_prompt
 
@@ -53,6 +54,9 @@ def run_pipeline():
     log.info(f"=== Stage 2: SEC EDGAR filing scan on {len(shortlist_df)} shortlisted tickers ===")
     shortlist_tickers = shortlist_df["symbol"].tolist()
     filings_df = scan_shortlist_for_filings(shortlist_tickers)
+
+    log.info("=== Stage 2.5: extended hours (AH/PM) data for shortlisted tickers ===")
+    shortlist_df = compute_extended_hours_metrics(shortlist_df)
 
     log.info("=== Stage 3: fair value reference data ===")
     shortlist_df = compute_fair_value(shortlist_df)
