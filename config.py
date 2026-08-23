@@ -4,7 +4,7 @@ Adjust thresholds here rather than scattering magic numbers through the codebase
 """
 
 # --- Universe filter (Stage 1) ---
-MIN_PRICE = 1.00        # filters out pure sub-penny junk; set to 0 to disable
+MIN_PRICE = 0        # filters out pure sub-penny junk; set to 0 to disable
 MAX_PRICE = 20.00       # widened scope per latest request (was $10)
 MAX_MARKET_CAP = 500_000_000    # ceiling to keep this in micro/small-cap territory
 MIN_LAST_DAY_VOLUME = 300_000   # rough first-pass liquidity gate, applied at the bulk screener stage
