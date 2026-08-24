@@ -70,13 +70,27 @@ def compute_catalyst_score(symbol_filings: pd.DataFrame) -> tuple[float, list[st
         key = _event_category_key(row)
         base_points = CATALYST_POINTS.get(key, 0)
         multiplier = _recency_multiplier(row["filed_date"])
-        weighted = base_points * multiplier
+
+        # 8-K item bonus: extra points for high-impact items (merger, agreement, etc.)
+        item_bonus = row.get("item_bonus", 0) if "item_bonus" in row.index else 0
+        if pd.isna(item_bonus):
+            item_bonus = 0
+
+        weighted = (base_points + item_bonus) * multiplier
         score += weighted
 
         if row["category"] in ("dilution_risk", "delisting_risk"):
             risk_flags.append(row["category"])
 
-        event_labels.append(f"{row['filed_date']} {row['form']} ({key}, {weighted:+.1f}pts)")
+        # Build detailed event label
+        item_summary = row.get("item_summary", "") if "item_summary" in row.index else ""
+        item_title = row.get("item_title", "") if "item_title" in row.index else ""
+        label_parts = [f"{row['filed_date']} {row['form']} ({key}, {weighted:+.1f}pts)"]
+        if item_summary:
+            label_parts.append(f"  {item_summary}")
+        if item_title:
+            label_parts.append(f"  Title: {item_title[:120]}")
+        event_labels.append(" ".join(label_parts))
 
     return score, sorted(set(risk_flags)), event_labels
 

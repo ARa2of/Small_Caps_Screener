@@ -53,12 +53,20 @@ STAGE 2 — SEC EDGAR CATALYST DETECTION
   Source: SEC EDGAR (free, public)
   - Scans each shortlisted ticker's recent SEC filings (last 10 days)
   - Classifies forms into catalyst categories:
-      8-K / 8-K/A        → material_event (+2 pts)
+      8-K / 8-K/A        → material_event (+2 pts base, adjusted by item)
       Form 4 insider buy  → insider_buy (+3 pts)
       Form 4 insider sell → insider_sell (-1 pt)
       S-1/S-3/424B/F-1    → dilution_risk (-4 pts, caps tier to Watch)
       Form 15/25          → delisting_risk (-6 pts, hard Avoid)
       SC 13D/13G          → ownership_change (+1 pt)
+  - 8-K items are parsed for significance:
+      Item 1.01 (Material Agreement)  → +3 pts bonus
+      Item 2.01 (Acquisition)         → +4 pts bonus
+      Item 1.03 (Bankruptcy)          → -4 pts
+      Item 3.01 (Delisting)           → -6 pts
+      Item 3.02 (Unregistered Equity) → -3 pts
+      + keyword signals in title (merger, termination, offering, etc.)
+  - Form 4 XML is parsed for transaction codes: P/A = buy, S = sell
   - Points decay over 10 days (same-day = full weight, 10 days = ~0)
 
 STAGE 3 — COMPOSITE SCORING & TIERING
@@ -72,7 +80,7 @@ STAGE 3 — COMPOSITE SCORING & TIERING
     + golden_cross_today (+2 pts)
     + RSI sweet spot 40-65 (+2 pts) / mild high 65-75 (+1) / overbought >75 (-2) / weak <30 (-1)
 
-  Catalyst Timing Penalty (NEW):
+  Catalyst Timing Penalty:
     Compares current price vs price on/near the catalyst filing date:
       0-10% up  → "Early" (no penalty — move hasn't happened yet)
       10-15% up → "Moved" (tag only)
@@ -86,6 +94,13 @@ STAGE 3 — COMPOSITE SCORING & TIERING
     composite >= 0  → Watch
     composite < 0   → Avoid
     (dilution_risk caps tier to Watch; delisting_risk = hard Avoid)
+
+STAGE 4 — RUN-TO-RUN CHURN TRACKING
+  Persists ticker state between runs to detect:
+  - first_seen_date: when the ticker first appeared in any run
+  - consecutive_runs: how many consecutive runs (up to 4-day gap for weekends)
+  - score_trend: "rising" (score improving), "falling", "stable", or "new"
+  - Names appearing 2-3 consecutive runs with rising scores have the best edge
 
 FAIR VALUE (contextual reference, NOT used in scoring):
   - P/S, P/B, EV/EBITDA ratios vs sector medians (where available)
@@ -153,6 +168,25 @@ def _build_data_section(scored_df: pd.DataFrame) -> str:
         lines.append(f"  Close: ${_fmt(row.get('close'))}")
         lines.append(f"  RVOL: {_fmt(row.get('rvol'))}x")
         lines.append(f"  RSI: {_fmt(row.get('rsi'), 1)}")
+
+        # Churn tracking
+        first_seen = row.get("first_seen_date")
+        consec = row.get("consecutive_runs")
+        trend = row.get("score_trend")
+        prev_sc = row.get("prev_score")
+        if first_seen and trend:
+            churn_info = f"  First Seen: {first_seen}"
+            if consec and consec > 1:
+                churn_info += f" | Consecutive Runs: {consec}"
+            if trend == "rising":
+                churn_info += " | Trend: RISING (score improving)"
+            elif trend == "falling":
+                churn_info += " | Trend: FALLING"
+            elif trend == "stable":
+                churn_info += " | Trend: STABLE"
+            if prev_sc is not None:
+                churn_info += f" | Prev Score: {_fmt(prev_sc)}"
+            lines.append(churn_info)
 
         events = row.get("catalyst_events", "none")
         if events and events != "none":
@@ -275,14 +309,21 @@ screener data above, perform the following analysis:
    - Compare AH volume to regular volume: high AH/regular ratio = smart money active
    - AH data helps distinguish "filed but nobody noticed" from "filed and being traded"
 
-7. RANKED SHORTLIST
+7. CHURN TRACKING & MOMENTUM
+   - "rising" trend + 2-3 consecutive runs = name is building momentum — strongest edge
+   - "new" ticker = fresh appearance, needs monitoring on next run
+   - "falling" trend = losing steam, catalyst may be fading
+   - Look for tickers that appeared in previous runs AND have rising scores — these
+     are names the market keeps revisiting, not one-day flukes
+
+8. RANKED SHORTLIST
    Provide a ranked list of the top 5-8 stocks with:
    - 1-line thesis for each (why it's interesting)
    - Key risk for each
    - Suggested action: DEEP DIVE / WATCH / SKIP
    - For DEEP DIVE stocks: what specifically should the user research further?
 
-7. OVERALL MARKET ASSESSMENT
+9. OVERALL MARKET ASSESSMENT
    - Is the current environment favorable for micro-cap catalyst plays?
    - Any sector themes or patterns you notice?
    - Any macro risks to be aware of?
@@ -316,6 +357,8 @@ THEN ASK FOLLOW-UPS LIKE:
   - "Which stocks had the biggest after-hours moves? Are those moves justified?"
   - "For stocks with AH data, is the AH volume significant relative to regular volume?"
   - "Is the AH move likely to hold at the open, or is it a low-volume AH spike?"
+  - "Which stocks have rising scores across multiple runs? Are they building momentum?"
+  - "For stocks with consecutive runs, is the trend driven by the same catalyst or new ones?"
 
 You can also just paste the Excel file (output/stage1_shortlist.xlsx)
 if you want the AI to see the full formatted data.

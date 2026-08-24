@@ -28,6 +28,7 @@ from scoring import build_scored_table
 from fair_value import compute_fair_value
 from volatility_range import compute_all_volatility_ranges
 from extended_hours import compute_extended_hours_metrics
+from churn_tracking import update_churn_tracking
 from excel_export import export_to_excel
 from report_generator import export_ai_prompt
 
@@ -66,6 +67,9 @@ def run_pipeline():
 
     log.info("=== Stage 3: composite scoring + recommendation tiers (with catalyst timing) ===")
     scored_df = build_scored_table(shortlist_df, filings_df, price_data=price_data)
+
+    log.info("=== Stage 4: run-to-run churn tracking ===")
+    scored_df = update_churn_tracking(scored_df)
 
     log.info("=== Generating AI analysis prompt ===")
     prompt_path = export_ai_prompt(scored_df)
