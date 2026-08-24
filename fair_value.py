@@ -30,6 +30,19 @@ def _fetch_info(symbol: str) -> dict:
         return {}
 
 
+def _safe_float(val):
+    """Convert a value to float, returning None for non-numeric/infinite values."""
+    if val is None:
+        return None
+    try:
+        f = float(val)
+        if not pd.notna(f) or f == float("inf") or f == float("-inf"):
+            return None
+        return f
+    except (TypeError, ValueError):
+        return None
+
+
 def _compute_sector_medians(infos: dict[str, dict]) -> dict[str, dict]:
     """
     Given a dict of {symbol: info_dict}, compute per-sector medians for
@@ -41,9 +54,9 @@ def _compute_sector_medians(infos: dict[str, dict]) -> dict[str, dict]:
         sector = info.get("sector")
         if not sector:
             continue
-        ps = info.get("priceToSalesTrailing12Months")
-        pb = info.get("priceToBook")
-        ev_ebitda = info.get("enterpriseToEbitda")
+        ps = _safe_float(info.get("priceToSalesTrailing12Months"))
+        pb = _safe_float(info.get("priceToBook"))
+        ev_ebitda = _safe_float(info.get("enterpriseToEbitda"))
         if ps is not None or pb is not None or ev_ebitda is not None:
             sector_data.setdefault(sector, []).append({
                 "ps": ps, "pb": pb, "ev_ebitda": ev_ebitda
@@ -125,10 +138,10 @@ def compute_fair_value(shortlist_df: pd.DataFrame) -> pd.DataFrame:
         sector = info.get("sector")
         medians = sector_medians.get(sector, {})
 
-        ps = info.get("priceToSalesTrailing12Months")
-        pb = info.get("priceToBook")
-        ev_ebitda = info.get("enterpriseToEbitda")
-        target = info.get("targetMeanPrice")
+        ps = _safe_float(info.get("priceToSalesTrailing12Months"))
+        pb = _safe_float(info.get("priceToBook"))
+        ev_ebitda = _safe_float(info.get("enterpriseToEbitda"))
+        target = _safe_float(info.get("targetMeanPrice"))
         graham = _graham_number(info)
 
         ps_vs = _relative_label(ps, medians.get("ps"))
