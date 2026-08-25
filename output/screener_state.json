@@ -1,59 +1,89 @@
 {
-  "FNGR": {
+  "DTCX": {
     "first_seen": "2026-08-25",
     "last_seen": "2026-08-25",
     "consecutive_runs": 1,
+    "last_score": 8.3
+  },
+  "TNXP": {
+    "first_seen": "2026-08-25",
+    "last_seen": "2026-08-25",
+    "consecutive_runs": 1,
+    "last_score": 7.16
+  },
+  "AVXL": {
+    "first_seen": "2026-08-25",
+    "last_seen": "2026-08-25",
+    "consecutive_runs": 1,
+    "last_score": 6.45
+  },
+  "FNGR": {
+    "first_seen": "2026-08-25",
+    "last_seen": "2026-08-25",
+    "consecutive_runs": 2,
     "last_score": 5.6
   },
   "GPUS": {
     "first_seen": "2026-08-25",
     "last_seen": "2026-08-25",
-    "consecutive_runs": 1,
-    "last_score": 5.42
+    "consecutive_runs": 2,
+    "last_score": 5.6
   },
   "GRML": {
     "first_seen": "2026-08-25",
     "last_seen": "2026-08-25",
-    "consecutive_runs": 1,
+    "consecutive_runs": 2,
     "last_score": 4.6
+  },
+  "RR": {
+    "first_seen": "2026-08-25",
+    "last_seen": "2026-08-25",
+    "consecutive_runs": 1,
+    "last_score": 4.09
   },
   "SLQT": {
     "first_seen": "2026-08-25",
     "last_seen": "2026-08-25",
-    "consecutive_runs": 1,
+    "consecutive_runs": 2,
     "last_score": 4.0
   },
   "HVII": {
     "first_seen": "2026-08-25",
     "last_seen": "2026-08-25",
-    "consecutive_runs": 1,
-    "last_score": 3.29
+    "consecutive_runs": 2,
+    "last_score": 3.37
   },
   "SMTK": {
     "first_seen": "2026-08-25",
     "last_seen": "2026-08-25",
-    "consecutive_runs": 1,
+    "consecutive_runs": 2,
     "last_score": 3.0
   },
   "AMIX": {
     "first_seen": "2026-08-25",
     "last_seen": "2026-08-25",
-    "consecutive_runs": 1,
+    "consecutive_runs": 2,
     "last_score": 3.0
   },
   "AEON": {
     "first_seen": "2026-08-25",
     "last_seen": "2026-08-25",
-    "consecutive_runs": 1,
+    "consecutive_runs": 2,
     "last_score": 2.6
   },
   "DFNS": {
     "first_seen": "2026-08-25",
     "last_seen": "2026-08-25",
-    "consecutive_runs": 1,
-    "last_score": 2.12
+    "consecutive_runs": 2,
+    "last_score": 2.03
   },
   "WVVIP": {
+    "first_seen": "2026-08-25",
+    "last_seen": "2026-08-25",
+    "consecutive_runs": 2,
+    "last_score": 1.0
+  },
+  "BMEA": {
     "first_seen": "2026-08-25",
     "last_seen": "2026-08-25",
     "consecutive_runs": 1,
@@ -62,22 +92,28 @@
   "BDRX": {
     "first_seen": "2026-08-25",
     "last_seen": "2026-08-25",
-    "consecutive_runs": 1,
+    "consecutive_runs": 2,
     "last_score": 0.0
   },
   "PMI": {
     "first_seen": "2026-08-24",
     "last_seen": "2026-08-25",
-    "consecutive_runs": 12,
+    "consecutive_runs": 13,
     "last_score": 0.0
   },
   "MCRP": {
     "first_seen": "2026-08-24",
     "last_seen": "2026-08-25",
-    "consecutive_runs": 7,
+    "consecutive_runs": 8,
     "last_score": 0.0
   },
   "CNTX": {
+    "first_seen": "2026-08-25",
+    "last_seen": "2026-08-25",
+    "consecutive_runs": 2,
+    "last_score": 0.0
+  },
+  "ADCT": {
     "first_seen": "2026-08-25",
     "last_seen": "2026-08-25",
     "consecutive_runs": 1,
@@ -86,25 +122,25 @@
   "NCPL": {
     "first_seen": "2026-08-25",
     "last_seen": "2026-08-25",
-    "consecutive_runs": 1,
+    "consecutive_runs": 2,
     "last_score": -0.8
   },
   "SNYR": {
     "first_seen": "2026-08-25",
     "last_seen": "2026-08-25",
-    "consecutive_runs": 1,
-    "last_score": -4.61
+    "consecutive_runs": 2,
+    "last_score": -4.69
   },
   "DAIC": {
     "first_seen": "2026-08-24",
     "last_seen": "2026-08-25",
-    "consecutive_runs": 12,
+    "consecutive_runs": 13,
     "last_score": -6.2
   },
   "SHMD": {
     "first_seen": "2026-08-24",
     "last_seen": "2026-08-25",
-    "consecutive_runs": 10,
+    "consecutive_runs": 11,
     "last_score": -32.0
   }
 }
