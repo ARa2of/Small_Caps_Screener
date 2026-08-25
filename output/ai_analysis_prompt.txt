@@ -5,7 +5,7 @@ You are acting as a micro-cap/small-cap catalyst swing trading analyst.
 A Python screener pipeline has just run and produced the data below.
 Your job is to help me (the trader) make sense of it.
 
-The data is from: 2026-08-25 20:55
+The data is from: 2026-08-25 21:19
 
 WHAT YOU HAVE:
 - A scored list of US stocks ($1-$20, micro/small-cap) that passed
@@ -172,7 +172,7 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   Close: $10.78
   RVOL: 3.56x
   RSI: 61.9
-  First Seen: 2026-08-25 | Consecutive Runs: 6 | Trend: STABLE | Prev Score: 16.00
+  First Seen: 2026-08-25 | Consecutive Runs: 7 | Trend: STABLE | Prev Score: 16.00
   Catalyst Events: 2026-08-20 8-K (material_event, +5.0pts)   Item 1.01 (entry_agreement, +3) | Item 1.02 (termination_agreement, +1)   Title: &#160;Entry into a Material Definitive Agreement.
   Technical Notes: trend_alignment +4, rsi_sweet_spot +2
   Extended Hours:
@@ -193,11 +193,11 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   Close: $0.74
   RVOL: 1.62x
   RSI: 38.9
-  First Seen: 2026-08-25 | Consecutive Runs: 3 | Trend: STABLE | Prev Score: 14.15
+  First Seen: 2026-08-25 | Consecutive Runs: 4 | Trend: STABLE | Prev Score: 14.15
   Catalyst Events: 2026-08-25 8-K (material_event, +5.0pts)   Item 1.01 (entry_agreement, +3)   Title: Entry into a Material Definitive | 2026-08-24 8-K (material_event, +8.1pts)   Item 1.01 (entry_agreement, +3)   Titl
   Technical Notes: trend_alignment +0
   Extended Hours:
-    AH Close: $0.75 | AH Vol: 9,470 | AH Move: 0.13%
+    AH Close: $0.76 | AH Vol: 9,470 | AH Move: 1.48%
     AH Range: $0.74 - $0.87
     PM Open: $0.78 | PM Vol: 0 | PM Move: 3.68%
 
@@ -212,16 +212,15 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   % Since Catalyst: 46.8%
   Risk Flags: 
   Close: $9.69
-  RVOL: 4.15x
+  RVOL: 4.16x
   RSI: 73.6
-  First Seen: 2026-08-25 | Consecutive Runs: 4 | Trend: STABLE | Prev Score: 11.20
+  First Seen: 2026-08-25 | Consecutive Runs: 5 | Trend: STABLE | Prev Score: 11.20
   Catalyst Events: 2026-08-24 4 (insider_buy, +2.7pts) | 2026-08-24 4 (insider_buy, +2.7pts) | 2026-08-24 4 (insider_buy, +2.7pts) | 2026-08-24 4 (insider_sell, -0.9pts) | 2026-08-20 4 (insider_sell, -0.5pts) | 2026-08-
   Technical Notes: trend_alignment +2, rsi_mild_high +1
   Extended Hours:
-    AH Close: $8.84 | AH Vol: 5,280 | AH Move: -7.51%
-    AH Range: $7.03 - $9.70
+    AH Close: $9.84 | AH Vol: 5,280 | AH Move: 2.93%
+    AH Range: $7.03 - $9.84
     PM Open: $7.86 | PM Vol: 0 | PM Move: -17.78%
-    >> AH SELLOFF: -7.5% — caution, possible negative catalyst reaction
 
 --- DTCX ---
   Tier: Strong
@@ -236,7 +235,7 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   Close: $2.74
   RVOL: 2.47x
   RSI: 71.6
-  First Seen: 2026-08-25 | Consecutive Runs: 8 | Trend: STABLE | Prev Score: 9.93
+  First Seen: 2026-08-25 | Consecutive Runs: 9 | Trend: STABLE | Prev Score: 9.93
   Catalyst Events: 2026-08-24 8-K/A (material_event, +1.8pts)   Items: 2.02, 8.01, 9.01 (routine) | 2026-08-24 8-K (material_event, +1.8pts)   Items: 2.02, 9.01 (routine)
   Technical Notes: trend_alignment +3, rsi_mild_high +1
   Extended Hours:
@@ -257,7 +256,7 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   Close: $3.56
   RVOL: 2.60x
   RSI: 64.3
-  First Seen: 2026-08-25 | Consecutive Runs: 8 | Trend: STABLE | Prev Score: 8.16
+  First Seen: 2026-08-25 | Consecutive Runs: 9 | Trend: STABLE | Prev Score: 8.16
   Catalyst Events: 2026-08-25 8-K (material_event, +2.0pts)   Items: 2.02, 9.01 (routine) | 2026-08-17 8-K (material_event, +0.4pts)   Items: 7.01, 9.01 (routine)
   Technical Notes: trend_alignment +2, rsi_sweet_spot +2
   Extended Hours:
@@ -278,33 +277,33 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   Close: $13.66
   RVOL: 2.38x
   RSI: 65.8
-  First Seen: 2026-08-25 | Consecutive Runs: 8 | Trend: STABLE | Prev Score: 7.76
+  First Seen: 2026-08-25 | Consecutive Runs: 9 | Trend: STABLE | Prev Score: 7.76
   Catalyst Events: 2026-08-24 4 (insider_buy, +2.7pts) | 2026-08-18 8-K (material_event, +0.3pts)   Item 5.02 (officer_departure, -1)
   Technical Notes: trend_alignment +2, rsi_mild_high +1
   Extended Hours:
-    AH Close: $13.66 | AH Vol: 65,774 | AH Move: 0.07%
+    AH Close: $13.73 | AH Vol: 65,774 | AH Move: 0.59%
     AH Range: $12.20 - $13.90
     PM Open: $12.44 | PM Vol: 0 | PM Move: -8.86%
 
 --- RNXT ---
   Tier: Moderate
-  Composite Score: 6.61
+  Composite Score: 6.63
   Catalyst Score (raw): 1.00
-  RVOL Multiplier: 1.61x
+  RVOL Multiplier: 1.63x
   Technical Score: 5.00
   Timing Penalty: 0.00 pts
   Timing Tag: Early
   % Since Catalyst: 7.6%
   Risk Flags: 
   Close: $1.42
-  RVOL: 2.41x
+  RVOL: 2.44x
   RSI: 66.6
-  First Seen: 2026-08-25 | Consecutive Runs: 6 | Trend: STABLE | Prev Score: 6.61
+  First Seen: 2026-08-25 | Consecutive Runs: 7 | Trend: RISING (score improving) | Prev Score: 6.61
   Catalyst Events: 2026-08-20 8-K (material_event, +1.0pts)   Items: 8.01 (routine)
   Technical Notes: trend_alignment +4, rsi_mild_high +1
   Extended Hours:
-    AH Close: $1.40 | AH Vol: 5,047 | AH Move: -1.37%
-    AH Range: $1.24 - $1.42
+    AH Close: $1.47 | AH Vol: 5,047 | AH Move: 3.55%
+    AH Range: $1.24 - $1.47
     PM Open: $1.32 | PM Vol: 0 | PM Move: -6.71%
 
 --- ANIX ---
@@ -320,7 +319,7 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   Close: $3.66
   RVOL: 2.94x
   RSI: 59.5
-  First Seen: 2026-08-25 | Consecutive Runs: 4 | Trend: STABLE | Prev Score: 6.00
+  First Seen: 2026-08-25 | Consecutive Runs: 5 | Trend: STABLE | Prev Score: 6.00
   Technical Notes: trend_alignment +4, rsi_sweet_spot +2
   Extended Hours:
     AH Close: $3.81 | AH Vol: 10,324 | AH Move: 4.50%
@@ -340,7 +339,7 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   Close: $10.23
   RVOL: 2.66x
   RSI: 63.3
-  First Seen: 2026-08-25 | Consecutive Runs: 3 | Trend: STABLE | Prev Score: 6.00
+  First Seen: 2026-08-25 | Consecutive Runs: 4 | Trend: STABLE | Prev Score: 6.00
   Technical Notes: trend_alignment +4, rsi_sweet_spot +2
   Extended Hours:
     AH Close: $10.23 | AH Vol: 0 | AH Move: 0.05%
@@ -360,7 +359,7 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   Close: $11.21
   RVOL: 2.25x
   RSI: 55.4
-  First Seen: 2026-08-25 | Consecutive Runs: 2 | Trend: STABLE | Prev Score: 6.00
+  First Seen: 2026-08-25 | Consecutive Runs: 3 | Trend: STABLE | Prev Score: 6.00
   Technical Notes: trend_alignment +4, rsi_sweet_spot +2
   Extended Hours:
     AH Close: $11.21 | AH Vol: 1,966 | AH Move: 0.04%
@@ -380,7 +379,7 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   Close: $4.77
   RVOL: 2.20x
   RSI: 55.3
-  First Seen: 2026-08-25 | Consecutive Runs: 4 | Trend: STABLE | Prev Score: 6.00
+  First Seen: 2026-08-25 | Consecutive Runs: 5 | Trend: STABLE | Prev Score: 6.00
   Technical Notes: trend_alignment +4, rsi_sweet_spot +2
   Extended Hours:
     AH Close: $4.77 | AH Vol: 7,771 | AH Move: 0.21%
@@ -400,7 +399,7 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   Close: $4.38
   RVOL: 2.13x
   RSI: 60.9
-  First Seen: 2026-08-25 | Consecutive Runs: 7 | Trend: STABLE | Prev Score: 6.00
+  First Seen: 2026-08-25 | Consecutive Runs: 8 | Trend: STABLE | Prev Score: 6.00
   Technical Notes: trend_alignment +4, rsi_sweet_spot +2
   Extended Hours:
     AH Close: $4.38 | AH Vol: 9,477 | AH Move: -0.23%
@@ -420,7 +419,7 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   Close: $12.61
   RVOL: 1.95x
   RSI: 56.1
-  First Seen: 2026-08-25 | Prev Score: N/A
+  First Seen: 2026-08-25 | Consecutive Runs: 2 | Trend: STABLE | Prev Score: 6.00
   Technical Notes: trend_alignment +4, rsi_sweet_spot +2
   Extended Hours:
     AH Close: $12.75 | AH Vol: 37,871 | AH Move: 0.71%
@@ -440,7 +439,7 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   Close: $2.38
   RVOL: 1.91x
   RSI: 52.6
-  First Seen: 2026-08-25 | Consecutive Runs: 3 | Trend: STABLE | Prev Score: 6.00
+  First Seen: 2026-08-25 | Consecutive Runs: 4 | Trend: STABLE | Prev Score: 6.00
   Technical Notes: trend_alignment +4, rsi_sweet_spot +2
   Extended Hours:
     AH Close: $2.38 | AH Vol: 2,188 | AH Move: 0.21%
@@ -460,7 +459,7 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   Close: $14.08
   RVOL: 1.91x
   RSI: 59.2
-  First Seen: 2026-08-25 | Prev Score: N/A
+  First Seen: 2026-08-25 | Consecutive Runs: 2 | Trend: STABLE | Prev Score: 6.00
   Technical Notes: trend_alignment +4, rsi_sweet_spot +2
   Extended Hours:
     AH Close: $14.08 | AH Vol: 34,282 | AH Move: 0.28%
@@ -480,11 +479,11 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   Close: $3.92
   RVOL: 1.50x
   RSI: 57.6
-  First Seen: 2026-08-25 | Consecutive Runs: 2 | Trend: STABLE | Prev Score: 6.00
+  First Seen: 2026-08-25 | Consecutive Runs: 3 | Trend: STABLE | Prev Score: 6.00
   Technical Notes: trend_alignment +4, rsi_sweet_spot +2
   Extended Hours:
-    AH Close: $3.92 | AH Vol: 5,620 | AH Move: -0.13%
-    AH Range: $3.89 - $3.99
+    AH Close: $3.87 | AH Vol: 5,620 | AH Move: -1.34%
+    AH Range: $3.87 - $3.99
     PM Open: $3.89 | PM Vol: 0 | PM Move: -0.85%
 
 --- DOUG ---
@@ -500,7 +499,7 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   Close: $1.95
   RVOL: 1.64x
   RSI: 57.0
-  First Seen: 2026-08-25 | Consecutive Runs: 2 | Trend: STABLE | Prev Score: 5.97
+  First Seen: 2026-08-25 | Consecutive Runs: 3 | Trend: STABLE | Prev Score: 5.97
   Catalyst Events: 2026-08-18 4 (insider_buy, +0.9pts) | 2026-08-18 4 (insider_buy, +0.9pts)
   Technical Notes: trend_alignment +2, rsi_sweet_spot +2
   Extended Hours:
@@ -519,13 +518,13 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   % Since Catalyst: -43.6%
   Risk Flags: 
   Close: $0.17
-  RVOL: 11.79x
+  RVOL: 11.81x
   RSI: 30.9
-  First Seen: 2026-08-25 | Consecutive Runs: 9 | Trend: STABLE | Prev Score: 5.60
+  First Seen: 2026-08-25 | Consecutive Runs: 10 | Trend: STABLE | Prev Score: 5.60
   Catalyst Events: 2026-08-25 8-K (material_event, +2.0pts)   Items: 8.01, 9.01 (routine) | 2026-08-17 8-K (material_event, +0.8pts)   Item 1.01 (entry_agreement, +3) | Item 2.03 (direct_obligation, -1) | Item 3.02 (unr
   Technical Notes: trend_alignment +0
   Extended Hours:
-    AH Close: $0.17 | AH Vol: 74,807 | AH Move: 1.08%
+    AH Close: $0.17 | AH Vol: 74,807 | AH Move: 1.92%
     AH Range: $0.16 - $0.23
     PM Open: $0.20 | PM Vol: 0 | PM Move: 22.12%
 
@@ -540,13 +539,13 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   % Since Catalyst: -14.5%
   Risk Flags: 
   Close: $0.40
-  RVOL: 4.53x
+  RVOL: 4.54x
   RSI: 26.3
-  First Seen: 2026-08-25 | Consecutive Runs: 9 | Trend: STABLE | Prev Score: 5.60
+  First Seen: 2026-08-25 | Consecutive Runs: 10 | Trend: STABLE | Prev Score: 5.60
   Catalyst Events: 2026-08-20 4/A (insider_buy, +1.5pts) | 2026-08-20 8-K (material_event, +1.0pts)   Items: 5.03, 9.01 (routine) | 2026-08-19 8-K (material_event, +0.8pts)   Items: 7.01 (routine)
   Technical Notes: trend_alignment +0, rsi_weak -1
   Extended Hours:
-    AH Close: $0.40 | AH Vol: 10,218 | AH Move: -0.53%
+    AH Close: $0.39 | AH Vol: 10,218 | AH Move: -1.67%
     AH Range: $0.39 - $0.40
     PM Open: $0.48 | PM Vol: 0 | PM Move: 20.29%
 
@@ -563,7 +562,7 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   Close: $11.31
   RVOL: 2.73x
   RSI: 70.3
-  First Seen: 2026-08-25 | Consecutive Runs: 7 | Trend: STABLE | Prev Score: 5.09
+  First Seen: 2026-08-25 | Consecutive Runs: 8 | Trend: STABLE | Prev Score: 5.09
   Catalyst Events: 2026-08-17 4 (insider_buy, +0.6pts)
   Technical Notes: trend_alignment +3, rsi_mild_high +1
   Extended Hours:
@@ -584,7 +583,7 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   Close: $2.46
   RVOL: 3.87x
   RSI: 71.9
-  First Seen: 2026-08-25 | Consecutive Runs: 7 | Trend: STABLE | Prev Score: 5.00
+  First Seen: 2026-08-25 | Consecutive Runs: 8 | Trend: STABLE | Prev Score: 5.00
   Technical Notes: trend_alignment +4, rsi_mild_high +1
   Extended Hours:
     AH Close: $2.42 | AH Vol: 5,717 | AH Move: -1.22%
@@ -602,13 +601,13 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   % Since Catalyst: 0.0%
   Risk Flags: 
   Close: $1.97
-  RVOL: 3.14x
+  RVOL: 3.15x
   RSI: 61.8
-  First Seen: 2026-08-25 | Consecutive Runs: 8 | Trend: STABLE | Prev Score: 5.00
+  First Seen: 2026-08-25 | Consecutive Runs: 9 | Trend: STABLE | Prev Score: 5.00
   Catalyst Events: 2026-08-25 8-K (material_event, +1.0pts)   Item 5.02 (officer_departure, -1)
   Technical Notes: trend_alignment +1, rsi_sweet_spot +2
   Extended Hours:
-    AH Close: $1.97 | AH Vol: 495,485 | AH Move: -0.25%
+    AH Close: $1.98 | AH Vol: 495,485 | AH Move: 0.24%
     AH Range: $1.60 - $1.99
     PM Open: $1.68 | PM Vol: 0 | PM Move: -15.03%
 
@@ -625,7 +624,7 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   Close: $2.38
   RVOL: 2.26x
   RSI: 71.9
-  First Seen: 2026-08-25 | Consecutive Runs: 6 | Trend: STABLE | Prev Score: 5.00
+  First Seen: 2026-08-25 | Consecutive Runs: 7 | Trend: STABLE | Prev Score: 5.00
   Technical Notes: trend_alignment +4, rsi_mild_high +1
   Extended Hours:
     AH Close: $2.38 | AH Vol: 20,075 | AH Move: 0.21%
@@ -645,11 +644,11 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   Close: $4.11
   RVOL: 1.73x
   RSI: 61.9
-  First Seen: 2026-08-25 | Consecutive Runs: 2 | Trend: STABLE | Prev Score: 5.00
+  First Seen: 2026-08-25 | Consecutive Runs: 3 | Trend: STABLE | Prev Score: 5.00
   Technical Notes: trend_alignment +3, rsi_sweet_spot +2
   Extended Hours:
-    AH Close: $4.11 | AH Vol: 0 | AH Move: 0.12%
-    AH Range: $4.01 - $4.20
+    AH Close: $4.27 | AH Vol: 0 | AH Move: 4.02%
+    AH Range: $4.01 - $4.30
     PM Open: $4.09 | PM Vol: 0 | PM Move: -0.37%
 
 --- DFDV ---
@@ -665,11 +664,11 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   Close: $4.58
   RVOL: 2.31x
   RSI: 81.9
-  First Seen: 2026-08-25 | Consecutive Runs: 6 | Trend: STABLE | Prev Score: 4.85
+  First Seen: 2026-08-25 | Consecutive Runs: 7 | Trend: STABLE | Prev Score: 4.85
   Catalyst Events: 2026-08-24 4 (insider_buy, +2.7pts) | 2026-08-21 4 (insider_buy, +1.8pts) | 2026-08-18 4 (insider_other, +0.0pts) | 2026-08-17 4 (insider_buy, +0.6pts)
   Technical Notes: trend_alignment +3, rsi_overbought -2
   Extended Hours:
-    AH Close: $4.55 | AH Vol: 40,316 | AH Move: -0.55%
+    AH Close: $4.46 | AH Vol: 40,316 | AH Move: -2.43%
     AH Range: $3.39 - $4.59
     PM Open: $4.11 | PM Vol: 0 | PM Move: -10.16%
 
@@ -686,11 +685,11 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   Close: $9.71
   RVOL: 0.34x
   RSI: 99.0
-  First Seen: 2026-08-25 | Consecutive Runs: 9 | Trend: STABLE | Prev Score: 4.60
+  First Seen: 2026-08-25 | Consecutive Runs: 10 | Trend: STABLE | Prev Score: 4.60
   Catalyst Events: 2026-08-25 4 (insider_buy, +3.0pts) | 2026-08-24 8-K (material_event, +1.8pts)   Items: 9.01 (routine) | 2026-08-24 424B5 (dilution_risk, -3.6pts)
   Technical Notes: trend_alignment +4, golden_cross +2, rsi_overbought -2
   Extended Hours:
-    AH Close: $9.96 | AH Vol: 3,033 | AH Move: 2.89%
+    AH Close: $9.95 | AH Vol: 3,033 | AH Move: 2.79%
     AH Range: $8.12 - $10.41
     PM Open: $10.17 | PM Vol: 0 | PM Move: 5.06%
 
@@ -707,7 +706,7 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   Close: $1.69
   RVOL: 1.54x
   RSI: 63.2
-  First Seen: 2026-08-25 | Consecutive Runs: 2 | Trend: STABLE | Prev Score: 4.03
+  First Seen: 2026-08-25 | Consecutive Runs: 3 | Trend: STABLE | Prev Score: 4.03
   Catalyst Events: 2026-08-20 8-K (material_event, +1.0pts)   Items: 8.01 (routine)   Title: >elme-20260820
   Technical Notes: trend_alignment +1, rsi_sweet_spot +2
   Extended Hours:
@@ -726,15 +725,15 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   % Since Catalyst: N/A%
   Risk Flags: 
   Close: $3.33
-  RVOL: 19.00x
+  RVOL: 19.07x
   RSI: 73.2
-  First Seen: 2026-08-25 | Consecutive Runs: 9 | Trend: STABLE | Prev Score: 4.00
+  First Seen: 2026-08-25 | Consecutive Runs: 10 | Trend: STABLE | Prev Score: 4.00
   Technical Notes: trend_alignment +3, rsi_mild_high +1
   Extended Hours:
-    AH Close: $6.23 | AH Vol: 0 | AH Move: 87.08%
+    AH Close: $4.32 | AH Vol: 0 | AH Move: 29.72%
     AH Range: $2.60 - $6.88
     PM Open: $17.00 | PM Vol: 0 | PM Move: 410.48%
-    >> SIGNIFICANT AH MOVE: +87.1% — catalyst may be driving after-hours interest
+    >> SIGNIFICANT AH MOVE: +29.7% — catalyst may be driving after-hours interest
 
 --- NHIC ---
   Tier: Moderate
@@ -749,7 +748,7 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   Close: $10.63
   RVOL: 9.25x
   RSI: 41.1
-  First Seen: 2026-08-25 | Consecutive Runs: 6 | Trend: STABLE | Prev Score: 4.00
+  First Seen: 2026-08-25 | Consecutive Runs: 7 | Trend: STABLE | Prev Score: 4.00
   Technical Notes: trend_alignment +2, rsi_sweet_spot +2
   Extended Hours:
     AH Close: $10.63 | AH Vol: 384 | AH Move: 0.09%
@@ -767,15 +766,16 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   % Since Catalyst: 0.0%
   Risk Flags: 
   Close: $0.55
-  RVOL: 8.61x
+  RVOL: 8.62x
   RSI: 32.0
-  First Seen: 2026-08-25 | Consecutive Runs: 9 | Trend: STABLE | Prev Score: 4.00
+  First Seen: 2026-08-25 | Consecutive Runs: 10 | Trend: STABLE | Prev Score: 4.00
   Catalyst Events: 2026-08-25 8-K (material_event, +2.0pts)   Items: 2.02, 9.01 (routine)   Title: >slqt-20260825
   Technical Notes: trend_alignment +0
   Extended Hours:
-    AH Close: $0.57 | AH Vol: 49,655 | AH Move: 3.23%
+    AH Close: $0.59 | AH Vol: 49,655 | AH Move: 7.55%
     AH Range: $0.54 - $0.86
     PM Open: $0.64 | PM Vol: 0 | PM Move: 17.27%
+    >> SIGNIFICANT AH MOVE: +7.5% — catalyst may be driving after-hours interest
 
 --- TRVG ---
   Tier: Moderate
@@ -790,7 +790,7 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   Close: $5.52
   RVOL: 4.73x
   RSI: 58.4
-  First Seen: 2026-08-25 | Consecutive Runs: 6 | Trend: STABLE | Prev Score: 4.00
+  First Seen: 2026-08-25 | Consecutive Runs: 7 | Trend: STABLE | Prev Score: 4.00
   Catalyst Events: 2026-08-18 4 (insider_other, +0.0pts) | 2026-08-18 4 (insider_other, +0.0pts) | 2026-08-18 4 (insider_other, +0.0pts) | 2026-08-18 4 (insider_other, +0.0pts)
   Technical Notes: trend_alignment +4, rsi_sweet_spot +2
   Extended Hours:
@@ -811,7 +811,7 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   Close: $11.56
   RVOL: 2.20x
   RSI: 61.6
-  First Seen: 2026-08-25 | Prev Score: N/A
+  First Seen: 2026-08-25 | Consecutive Runs: 2 | Trend: STABLE | Prev Score: 4.00
   Technical Notes: trend_alignment +2, rsi_sweet_spot +2
   Extended Hours:
     AH Close: $11.56 | AH Vol: 1,350 | AH Move: -0.00%
@@ -822,16 +822,16 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   Tier: Moderate
   Composite Score: 4.00
   Catalyst Score (raw): 0.00
-  RVOL Multiplier: 1.29x
+  RVOL Multiplier: 1.30x
   Technical Score: 4.00
   Timing Penalty: 0.00 pts
   Timing Tag: N/A
   % Since Catalyst: N/A%
   Risk Flags: 
   Close: $3.92
-  RVOL: 1.94x
+  RVOL: 1.95x
   RSI: 45.7
-  First Seen: 2026-08-25 | Consecutive Runs: 4 | Trend: STABLE | Prev Score: 4.00
+  First Seen: 2026-08-25 | Consecutive Runs: 5 | Trend: STABLE | Prev Score: 4.00
   Technical Notes: trend_alignment +2, rsi_sweet_spot +2
   Extended Hours:
     AH Close: $3.90 | AH Vol: 23,267 | AH Move: -0.48%
@@ -851,7 +851,7 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   Close: $11.09
   RVOL: 1.86x
   RSI: 44.8
-  First Seen: 2026-08-25 | Prev Score: N/A
+  First Seen: 2026-08-25 | Consecutive Runs: 2 | Trend: STABLE | Prev Score: 4.00
   Technical Notes: trend_alignment +2, rsi_sweet_spot +2
   Extended Hours:
     AH Close: $11.09 | AH Vol: 2,424 | AH Move: 0.23%
@@ -871,7 +871,7 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   Close: $1.95
   RVOL: 1.59x
   RSI: 64.4
-  First Seen: 2026-08-25 | Consecutive Runs: 2 | Trend: STABLE | Prev Score: 4.00
+  First Seen: 2026-08-25 | Consecutive Runs: 3 | Trend: STABLE | Prev Score: 4.00
   Technical Notes: trend_alignment +2, rsi_sweet_spot +2
   Extended Hours:
     AH Close: $1.96 | AH Vol: 40,733 | AH Move: 0.67%
@@ -880,22 +880,22 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
 
 --- CYPH ---
   Tier: Watch
-  Composite Score: 3.91
+  Composite Score: 3.97
   Catalyst Score (raw): 4.50
-  RVOL Multiplier: 1.31x
+  RVOL Multiplier: 1.33x
   Technical Score: 2.00
   Timing Penalty: -4.00 pts
   Timing Tag: Late Entry — Priced In
   % Since Catalyst: 103.7%
   Risk Flags: 
   Close: $1.64
-  RVOL: 1.97x
+  RVOL: 1.99x
   RSI: 85.4
-  First Seen: 2026-08-25 | Consecutive Runs: 6 | Trend: STABLE | Prev Score: 3.91
+  First Seen: 2026-08-25 | Consecutive Runs: 7 | Trend: RISING (score improving) | Prev Score: 3.91
   Catalyst Events: 2026-08-24 4 (insider_buy, +2.7pts) | 2026-08-19 4 (insider_other, +0.0pts) | 2026-08-19 4 (insider_other, +0.0pts) | 2026-08-18 8-K (material_event, +1.8pts)   Item 1.01 (entry_agreement, +3) | Item 
   Technical Notes: trend_alignment +4, rsi_overbought -2
   Extended Hours:
-    AH Close: $1.61 | AH Vol: 54,639 | AH Move: -2.01%
+    AH Close: $1.59 | AH Vol: 54,639 | AH Move: -3.23%
     AH Range: $1.06 - $1.80
     PM Open: $1.62 | PM Vol: 0 | PM Move: -1.41%
 
@@ -912,13 +912,14 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   Close: $17.65
   RVOL: 1.62x
   RSI: 62.9
-  First Seen: 2026-08-25 | Consecutive Runs: 2 | Trend: STABLE | Prev Score: 3.62
+  First Seen: 2026-08-25 | Consecutive Runs: 3 | Trend: STABLE | Prev Score: 3.62
   Catalyst Events: 2026-08-20 4 (insider_buy, +1.5pts)
   Technical Notes: trend_alignment +2, rsi_sweet_spot +2
   Extended Hours:
-    AH Close: $17.65 | AH Vol: 16,161 | AH Move: 0.51%
+    AH Close: $16.23 | AH Vol: 16,161 | AH Move: -7.59%
     AH Range: $14.36 - $17.65
     PM Open: $16.50 | PM Vol: 0 | PM Move: -6.04%
+    >> AH SELLOFF: -7.6% — caution, possible negative catalyst reaction
 
 --- STEX ---
   Tier: Watch
@@ -933,7 +934,7 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   Close: $0.76
   RVOL: 1.95x
   RSI: 45.3
-  First Seen: 2026-08-25 | Consecutive Runs: 3 | Trend: STABLE | Prev Score: 3.56
+  First Seen: 2026-08-25 | Consecutive Runs: 4 | Trend: STABLE | Prev Score: 3.56
   Catalyst Events: 2026-08-21 8-K (material_event, +1.2pts)   Items: 2.02, 7.01, 9.01 (routine)
   Technical Notes: trend_alignment +0, rsi_sweet_spot +2
   Extended Hours:
@@ -943,22 +944,22 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
 
 --- HVII ---
   Tier: Watch
-  Composite Score: 3.50
+  Composite Score: 3.54
   Catalyst Score (raw): 2.80
-  RVOL Multiplier: 1.61x
+  RVOL Multiplier: 1.62x
   Technical Score: -1.00
   Timing Penalty: 0.00 pts
   Timing Tag: Early
   % Since Catalyst: -4.2%
   Risk Flags: 
   Close: $7.84
-  RVOL: 2.41x
+  RVOL: 2.43x
   RSI: 29.7
-  First Seen: 2026-08-25 | Consecutive Runs: 9 | Trend: STABLE | Prev Score: 3.50
+  First Seen: 2026-08-25 | Consecutive Runs: 10 | Trend: RISING (score improving) | Prev Score: 3.50
   Catalyst Events: 2026-08-24 8-K (material_event, +1.8pts)   Items: 5.07, 8.01 (routine) | 2026-08-20 8-K (material_event, +1.0pts)   Items: 7.01, 9.01 (routine)
   Technical Notes: trend_alignment +0, rsi_weak -1
   Extended Hours:
-    AH Close: $7.70 | AH Vol: 6,127 | AH Move: -1.53%
+    AH Close: $7.91 | AH Vol: 6,127 | AH Move: 1.15%
     AH Range: $6.09 - $11.00
     PM Open: $7.68 | PM Vol: 0 | PM Move: -1.79%
 
@@ -973,34 +974,33 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   % Since Catalyst: -14.9%
   Risk Flags: 
   Close: $3.70
-  RVOL: 4.87x
+  RVOL: 4.98x
   RSI: 28.1
-  First Seen: 2026-08-25 | Consecutive Runs: 9 | Trend: STABLE | Prev Score: 3.00
+  First Seen: 2026-08-25 | Consecutive Runs: 10 | Trend: STABLE | Prev Score: 3.00
   Catalyst Events: 2026-08-21 8-K (material_event, +1.2pts)   Items: 5.03, 9.01 (routine) | 2026-08-19 8-K (material_event, +0.8pts)   Items: 8.01, 9.01 (routine)
   Technical Notes: trend_alignment +0, rsi_weak -1
   Extended Hours:
-    AH Close: $3.92 | AH Vol: 7,895 | AH Move: 6.77%
+    AH Close: $3.80 | AH Vol: 45,452 | AH Move: 3.54%
     AH Range: $3.58 - $5.15
     PM Open: $3.79 | PM Vol: 0 | PM Move: 3.28%
-    >> SIGNIFICANT AH MOVE: +6.8% — catalyst may be driving after-hours interest
 
 --- EVV ---
   Tier: Watch
   Composite Score: 3.00
   Catalyst Score (raw): 0.00
-  RVOL Multiplier: 1.48x
+  RVOL Multiplier: 1.49x
   Technical Score: 3.00
   Timing Penalty: 0.00 pts
   Timing Tag: N/A
   % Since Catalyst: N/A%
   Risk Flags: 
   Close: $9.14
-  RVOL: 2.22x
+  RVOL: 2.24x
   RSI: 52.7
-  First Seen: 2026-08-25 | Consecutive Runs: 4 | Trend: STABLE | Prev Score: 3.00
+  First Seen: 2026-08-25 | Consecutive Runs: 5 | Trend: STABLE | Prev Score: 3.00
   Technical Notes: trend_alignment +1, rsi_sweet_spot +2
   Extended Hours:
-    AH Close: $9.26 | AH Vol: 6,191 | AH Move: 1.33%
+    AH Close: $9.11 | AH Vol: 6,191 | AH Move: -0.33%
     AH Range: $9.04 - $9.26
     PM Open: $9.10 | PM Vol: 0 | PM Move: -0.44%
 
@@ -1015,12 +1015,12 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   % Since Catalyst: N/A%
   Risk Flags: 
   Close: $7.19
-  RVOL: 2.20x
+  RVOL: 2.21x
   RSI: 51.6
-  First Seen: 2026-08-25 | Consecutive Runs: 9 | Trend: STABLE | Prev Score: 3.00
+  First Seen: 2026-08-25 | Consecutive Runs: 10 | Trend: STABLE | Prev Score: 3.00
   Technical Notes: trend_alignment +1, rsi_sweet_spot +2
   Extended Hours:
-    AH Close: $7.11 | AH Vol: 13,347 | AH Move: -1.39%
+    AH Close: $7.35 | AH Vol: 13,347 | AH Move: 1.94%
     AH Range: $5.17 - $16.41
     PM Open: $8.00 | PM Vol: 0 | PM Move: 10.96%
 
@@ -1037,7 +1037,7 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   Close: $13.96
   RVOL: 1.69x
   RSI: 54.5
-  First Seen: 2026-08-25 | Consecutive Runs: 2 | Trend: STABLE | Prev Score: 3.00
+  First Seen: 2026-08-25 | Consecutive Runs: 3 | Trend: STABLE | Prev Score: 3.00
   Technical Notes: trend_alignment +1, rsi_sweet_spot +2
   Extended Hours:
     AH Close: $13.82 | AH Vol: 177,376 | AH Move: -1.07%
@@ -1057,7 +1057,7 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   Close: $1.73
   RVOL: 1.53x
   RSI: 51.0
-  First Seen: 2026-08-25 | Consecutive Runs: 2 | Trend: STABLE | Prev Score: 3.00
+  First Seen: 2026-08-25 | Consecutive Runs: 3 | Trend: STABLE | Prev Score: 3.00
   Technical Notes: trend_alignment +1, rsi_sweet_spot +2
   Extended Hours:
     AH Close: $1.73 | AH Vol: 16,311 | AH Move: 0.54%
@@ -1077,10 +1077,10 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   Close: $1.87
   RVOL: 1.50x
   RSI: 55.4
-  First Seen: 2026-08-25 | Consecutive Runs: 2 | Trend: STABLE | Prev Score: 3.00
+  First Seen: 2026-08-25 | Consecutive Runs: 3 | Trend: STABLE | Prev Score: 3.00
   Technical Notes: trend_alignment +1, rsi_sweet_spot +2
   Extended Hours:
-    AH Close: $1.82 | AH Vol: 0 | AH Move: -2.41%
+    AH Close: $1.87 | AH Vol: 0 | AH Move: 0.27%
     AH Range: $1.75 - $1.90
     PM Open: $1.82 | PM Vol: 0 | PM Move: -2.41%
 
@@ -1095,13 +1095,13 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   % Since Catalyst: 10.4%
   Risk Flags: 
   Close: $0.21
-  RVOL: 9.82x
+  RVOL: 9.83x
   RSI: 27.9
-  First Seen: 2026-08-25 | Consecutive Runs: 9 | Trend: STABLE | Prev Score: 2.60
+  First Seen: 2026-08-25 | Consecutive Runs: 10 | Trend: STABLE | Prev Score: 2.60
   Catalyst Events: 2026-08-21 4 (insider_buy, +1.8pts)
   Technical Notes: trend_alignment +0, rsi_weak -1
   Extended Hours:
-    AH Close: $0.22 | AH Vol: 11,695 | AH Move: 0.14%
+    AH Close: $0.22 | AH Vol: 11,695 | AH Move: 0.28%
     AH Range: $0.18 - $0.24
     PM Open: $0.20 | PM Vol: 0 | PM Move: -5.89%
 
@@ -1118,7 +1118,7 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   Close: $14.15
   RVOL: 6.72x
   RSI: 48.4
-  First Seen: 2026-08-25 | Consecutive Runs: 2 | Trend: STABLE | Prev Score: 2.00
+  First Seen: 2026-08-25 | Consecutive Runs: 3 | Trend: STABLE | Prev Score: 2.00
   Technical Notes: trend_alignment +0, rsi_sweet_spot +2
   Extended Hours:
     AH Close: $14.15 | AH Vol: 0 | AH Move: 0.14%
@@ -1138,7 +1138,7 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   Close: $1.04
   RVOL: 2.66x
   RSI: 43.8
-  First Seen: 2026-08-25 | Consecutive Runs: 8 | Trend: STABLE | Prev Score: 2.00
+  First Seen: 2026-08-25 | Consecutive Runs: 9 | Trend: STABLE | Prev Score: 2.00
   Technical Notes: trend_alignment +0, rsi_sweet_spot +2
   Extended Hours:
     AH Close: $1.03 | AH Vol: 126,337 | AH Move: 0.03%
@@ -1158,7 +1158,7 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   Close: $4.14
   RVOL: 2.32x
   RSI: 67.1
-  First Seen: 2026-08-25 | Consecutive Runs: 4 | Trend: STABLE | Prev Score: 2.00
+  First Seen: 2026-08-25 | Consecutive Runs: 5 | Trend: STABLE | Prev Score: 2.00
   Technical Notes: trend_alignment +1, rsi_mild_high +1
   Extended Hours:
     AH Close: $4.14 | AH Vol: 94,874 | AH Move: -0.36%
@@ -1178,7 +1178,7 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   Close: $2.08
   RVOL: 2.04x
   RSI: 71.9
-  First Seen: 2026-08-25 | Consecutive Runs: 4 | Trend: STABLE | Prev Score: 2.00
+  First Seen: 2026-08-25 | Consecutive Runs: 5 | Trend: STABLE | Prev Score: 2.00
   Technical Notes: trend_alignment +1, rsi_mild_high +1
   Extended Hours:
     AH Close: $2.08 | AH Vol: 1,117 | AH Move: -0.24%
@@ -1189,16 +1189,16 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   Tier: Watch
   Composite Score: 2.00
   Catalyst Score (raw): 0.00
-  RVOL Multiplier: 1.31x
+  RVOL Multiplier: 1.34x
   Technical Score: 2.00
   Timing Penalty: 0.00 pts
   Timing Tag: N/A
   % Since Catalyst: N/A%
   Risk Flags: 
   Close: $1.09
-  RVOL: 1.97x
+  RVOL: 2.01x
   RSI: 66.7
-  First Seen: 2026-08-25 | Consecutive Runs: 6 | Trend: STABLE | Prev Score: 2.00
+  First Seen: 2026-08-25 | Consecutive Runs: 7 | Trend: STABLE | Prev Score: 2.00
   Technical Notes: trend_alignment +1, rsi_mild_high +1
   Extended Hours:
     AH Close: $1.06 | AH Vol: 13,913 | AH Move: -2.30%
@@ -1209,19 +1209,19 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   Tier: Watch
   Composite Score: 2.00
   Catalyst Score (raw): 0.00
-  RVOL Multiplier: 1.21x
+  RVOL Multiplier: 1.22x
   Technical Score: 2.00
   Timing Penalty: 0.00 pts
   Timing Tag: N/A
   % Since Catalyst: N/A%
   Risk Flags: 
   Close: $0.96
-  RVOL: 1.82x
+  RVOL: 1.83x
   RSI: 42.7
-  First Seen: 2026-08-25 | Consecutive Runs: 4 | Trend: STABLE | Prev Score: 2.00
+  First Seen: 2026-08-25 | Consecutive Runs: 5 | Trend: STABLE | Prev Score: 2.00
   Technical Notes: trend_alignment +0, rsi_sweet_spot +2
   Extended Hours:
-    AH Close: $0.96 | AH Vol: 95,246 | AH Move: -0.07%
+    AH Close: $0.95 | AH Vol: 95,246 | AH Move: -0.89%
     AH Range: $0.86 - $0.97
     PM Open: $0.90 | PM Vol: 0 | PM Move: -6.67%
 
@@ -1238,10 +1238,10 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   Close: $2.00
   RVOL: 1.69x
   RSI: 80.6
-  First Seen: 2026-08-25 | Consecutive Runs: 3 | Trend: STABLE | Prev Score: 2.00
+  First Seen: 2026-08-25 | Consecutive Runs: 4 | Trend: STABLE | Prev Score: 2.00
   Technical Notes: trend_alignment +4, rsi_overbought -2
   Extended Hours:
-    AH Close: $1.97 | AH Vol: 11,650 | AH Move: -0.86%
+    AH Close: $1.97 | AH Vol: 11,650 | AH Move: -0.87%
     AH Range: $1.82 - $2.00
     PM Open: $1.90 | PM Vol: 0 | PM Move: -4.52%
 
@@ -1258,7 +1258,7 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   Close: $1.73
   RVOL: 1.64x
   RSI: 49.4
-  First Seen: 2026-08-25 | Consecutive Runs: 3 | Trend: STABLE | Prev Score: 2.00
+  First Seen: 2026-08-25 | Consecutive Runs: 4 | Trend: STABLE | Prev Score: 2.00
   Technical Notes: trend_alignment +0, rsi_sweet_spot +2
   Extended Hours:
     AH Close: $1.73 | AH Vol: 12,359 | AH Move: 1.76%
@@ -1278,11 +1278,11 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   Close: $10.65
   RVOL: 3.49x
   RSI: 44.3
-  First Seen: 2026-08-25 | Consecutive Runs: 5 | Trend: STABLE | Prev Score: 1.80
+  First Seen: 2026-08-25 | Consecutive Runs: 6 | Trend: STABLE | Prev Score: 1.80
   Catalyst Events: 2026-08-21 4 (insider_sell, -0.6pts)
   Technical Notes: trend_alignment +1, rsi_sweet_spot +2
   Extended Hours:
-    AH Close: $10.71 | AH Vol: 7,872 | AH Move: 0.39%
+    AH Close: $10.73 | AH Vol: 7,872 | AH Move: 0.56%
     AH Range: $10.59 - $10.74
     PM Open: $10.74 | PM Vol: 0 | PM Move: 0.66%
 
@@ -1297,9 +1297,9 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   % Since Catalyst: -57.9%
   Risk Flags: 
   Close: $13.04
-  RVOL: 3.39x
+  RVOL: 3.42x
   RSI: 42.0
-  First Seen: 2026-08-25 | Consecutive Runs: 9 | Trend: STABLE | Prev Score: 1.80
+  First Seen: 2026-08-25 | Consecutive Runs: 10 | Trend: STABLE | Prev Score: 1.80
   Catalyst Events: 2026-08-20 8-K (material_event, -2.0pts)   Item 3.01 (delisting, -6) | 2026-08-17 8-K (material_event, +0.4pts)   Items: 8.01 (routine)
   Technical Notes: trend_alignment +3, rsi_sweet_spot +2
   Extended Hours:
@@ -1320,7 +1320,7 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   Close: $2.25
   RVOL: 1.61x
   RSI: 67.6
-  First Seen: 2026-08-25 | Consecutive Runs: 3 | Trend: STABLE | Prev Score: 1.28
+  First Seen: 2026-08-25 | Consecutive Runs: 4 | Trend: STABLE | Prev Score: 1.28
   Catalyst Events: 2026-08-19 424B3 (dilution_risk, -1.6pts)
   Technical Notes: trend_alignment +2, rsi_mild_high +1
   Extended Hours:
@@ -1339,16 +1339,16 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   % Since Catalyst: 154.4%
   Risk Flags: 
   Close: $0.58
-  RVOL: 19.10x
+  RVOL: 19.12x
   RSI: 69.0
-  First Seen: 2026-08-25 | Consecutive Runs: 9 | Trend: STABLE | Prev Score: 1.20
+  First Seen: 2026-08-25 | Consecutive Runs: 10 | Trend: STABLE | Prev Score: 1.20
   Catalyst Events: 2026-08-25 8-K (material_event, +1.0pts)   Item 5.02 (officer_departure, -1) | 2026-08-18 8-K (material_event, +0.6pts)   Items: 4.01, 4.02, 9.01 (routine)
   Technical Notes: trend_alignment +1, rsi_mild_high +1
   Extended Hours:
-    AH Close: $0.53 | AH Vol: 0 | AH Move: -7.81%
+    AH Close: $0.54 | AH Vol: 0 | AH Move: -6.37%
     AH Range: $0.22 - $0.69
     PM Open: $0.26 | PM Vol: 0 | PM Move: -54.77%
-    >> AH SELLOFF: -7.8% — caution, possible negative catalyst reaction
+    >> AH SELLOFF: -6.4% — caution, possible negative catalyst reaction
 
 --- BMEA ---
   Tier: Watch
@@ -1361,12 +1361,12 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   % Since Catalyst: N/A%
   Risk Flags: 
   Close: $1.73
-  RVOL: 3.49x
+  RVOL: 3.50x
   RSI: 82.5
-  First Seen: 2026-08-25 | Consecutive Runs: 8 | Trend: STABLE | Prev Score: 1.00
+  First Seen: 2026-08-25 | Consecutive Runs: 9 | Trend: STABLE | Prev Score: 1.00
   Technical Notes: trend_alignment +3, rsi_overbought -2
   Extended Hours:
-    AH Close: $1.75 | AH Vol: 0 | AH Move: 1.46%
+    AH Close: $1.75 | AH Vol: 0 | AH Move: 1.47%
     AH Range: $1.33 - $1.76
     PM Open: $1.61 | PM Vol: 0 | PM Move: -6.67%
 
@@ -1383,7 +1383,7 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   Close: $2.57
   RVOL: 1.92x
   RSI: 75.9
-  First Seen: 2026-08-25 | Consecutive Runs: 4 | Trend: STABLE | Prev Score: 1.00
+  First Seen: 2026-08-25 | Consecutive Runs: 5 | Trend: STABLE | Prev Score: 1.00
   Technical Notes: trend_alignment +3, rsi_overbought -2
   Extended Hours:
     AH Close: $2.60 | AH Vol: 10,529 | AH Move: 1.56%
@@ -1392,22 +1392,22 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
 
 --- GOSS ---
   Tier: Watch
-  Composite Score: 0.56
+  Composite Score: 0.58
   Catalyst Score (raw): 1.20
-  RVOL Multiplier: 1.30x
+  RVOL Multiplier: 1.32x
   Technical Score: 3.00
   Timing Penalty: -4.00 pts
   Timing Tag: Late Entry — Priced In
   % Since Catalyst: 31.9%
   Risk Flags: 
   Close: $0.20
-  RVOL: 1.95x
+  RVOL: 1.98x
   RSI: 62.1
-  First Seen: 2026-08-25 | Consecutive Runs: 4 | Trend: STABLE | Prev Score: 0.56
+  First Seen: 2026-08-25 | Consecutive Runs: 5 | Trend: RISING (score improving) | Prev Score: 0.56
   Catalyst Events: 2026-08-21 8-K (material_event, +1.2pts)   Item 1.01 (entry_agreement, +3) | Item 3.02 (unregistered_equity, -3)   Title: >goss-20260820
   Technical Notes: trend_alignment +1, rsi_sweet_spot +2
   Extended Hours:
-    AH Close: $0.20 | AH Vol: 10,241 | AH Move: -1.66%
+    AH Close: $0.20 | AH Vol: 10,241 | AH Move: -0.44%
     AH Range: $0.15 - $0.21
     PM Open: $0.18 | PM Vol: 0 | PM Move: -13.30%
 
@@ -1424,11 +1424,11 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   Close: $3.65
   RVOL: 0.30x
   RSI: 97.0
-  First Seen: 2026-08-25 | Consecutive Runs: 4 | Trend: STABLE | Prev Score: 0.20
+  First Seen: 2026-08-25 | Consecutive Runs: 5 | Trend: STABLE | Prev Score: 0.20
   Catalyst Events: 2026-08-19 8-K (material_event, +0.4pts)   Item 3.03 (rights_modification, -1)
   Technical Notes: trend_alignment +4, golden_cross +2, rsi_overbought -2
   Extended Hours:
-    AH Close: $3.60 | AH Vol: 3,188 | AH Move: -2.04%
+    AH Close: $3.54 | AH Vol: 3,188 | AH Move: -3.67%
     AH Range: $3.14 - $3.72
     PM Open: $3.15 | PM Vol: 0 | PM Move: -14.29%
 
@@ -1443,16 +1443,15 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   % Since Catalyst: 215.2%
   Risk Flags: 
   Close: $9.55
-  RVOL: 10.43x
+  RVOL: 10.47x
   RSI: 79.9
-  First Seen: 2026-08-24 | Consecutive Runs: 20 | Trend: STABLE | Prev Score: 0.00
+  First Seen: 2026-08-24 | Consecutive Runs: 21 | Trend: STABLE | Prev Score: 0.00
   Catalyst Events: 2026-08-20 8-K (material_event, +1.0pts)   Items: 7.01, 9.01 (routine)   Title: >pmi20260814_8k.htm
   Technical Notes: trend_alignment +4, rsi_overbought -2
   Extended Hours:
-    AH Close: $8.81 | AH Vol: 7,560 | AH Move: -7.31%
+    AH Close: $9.27 | AH Vol: 7,560 | AH Move: -2.46%
     AH Range: $3.03 - $9.89
     PM Open: $6.04 | PM Vol: 0 | PM Move: -36.45%
-    >> AH SELLOFF: -7.3% — caution, possible negative catalyst reaction
 
 --- MCRP ---
   Tier: Watch
@@ -1465,12 +1464,12 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   % Since Catalyst: N/A%
   Risk Flags: 
   Close: $1.08
-  RVOL: 4.88x
+  RVOL: 4.90x
   RSI: 37.9
-  First Seen: 2026-08-24 | Consecutive Runs: 15 | Trend: STABLE | Prev Score: 0.00
+  First Seen: 2026-08-24 | Consecutive Runs: 16 | Trend: STABLE | Prev Score: 0.00
   Technical Notes: trend_alignment +0
   Extended Hours:
-    AH Close: $1.07 | AH Vol: 1,200 | AH Move: -0.85%
+    AH Close: $1.10 | AH Vol: 1,200 | AH Move: 1.85%
     AH Range: $1.03 - $1.55
     PM Open: $1.10 | PM Vol: 0 | PM Move: 2.31%
 
@@ -1487,10 +1486,10 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   Close: $0.44
   RVOL: 3.58x
   RSI: 33.6
-  First Seen: 2026-08-25 | Consecutive Runs: 9 | Trend: STABLE | Prev Score: 0.00
+  First Seen: 2026-08-25 | Consecutive Runs: 10 | Trend: STABLE | Prev Score: 0.00
   Technical Notes: trend_alignment +0
   Extended Hours:
-    AH Close: $0.43 | AH Vol: 49,975 | AH Move: -0.60%
+    AH Close: $0.43 | AH Vol: 49,975 | AH Move: -0.09%
     AH Range: $0.43 - $0.52
     PM Open: $0.48 | PM Vol: 0 | PM Move: 10.42%
 
@@ -1507,7 +1506,7 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   Close: $14.31
   RVOL: 2.14x
   RSI: 38.8
-  First Seen: 2026-08-25 | Consecutive Runs: 4 | Trend: STABLE | Prev Score: 0.00
+  First Seen: 2026-08-25 | Consecutive Runs: 5 | Trend: STABLE | Prev Score: 0.00
   Technical Notes: trend_alignment +0
   Extended Hours:
     AH Close: $14.30 | AH Vol: 106,295 | AH Move: -0.07%
@@ -1527,7 +1526,7 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   Close: $0.60
   RVOL: 1.99x
   RSI: 48.7
-  First Seen: 2026-08-25 | Consecutive Runs: 7 | Trend: STABLE | Prev Score: -0.18
+  First Seen: 2026-08-25 | Consecutive Runs: 8 | Trend: STABLE | Prev Score: -0.18
   Catalyst Events: 2026-08-21 8-K (material_event, -2.4pts)   Item 3.01 (delisting, -6)
   Technical Notes: trend_alignment +1, rsi_sweet_spot +2
   Extended Hours:
@@ -1548,11 +1547,11 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   Close: $6.05
   RVOL: 2.14x
   RSI: 77.9
-  First Seen: 2026-08-25 | Consecutive Runs: 7 | Trend: STABLE | Prev Score: -0.43
+  First Seen: 2026-08-25 | Consecutive Runs: 8 | Trend: STABLE | Prev Score: -0.43
   Catalyst Events: 2026-08-17 4 (insider_buy, +0.6pts) | 2026-08-17 4 (insider_buy, +0.6pts) | 2026-08-17 4 (insider_buy, +0.6pts)
   Technical Notes: trend_alignment +3, rsi_overbought -2
   Extended Hours:
-    AH Close: $6.05 | AH Vol: 0 | AH Move: 0.02%
+    AH Close: $6.05 | AH Vol: 0 | AH Move: 0.08%
     AH Range: $4.94 - $6.12
     PM Open: $5.85 | PM Vol: 0 | PM Move: -3.23%
 
@@ -1569,7 +1568,7 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   Close: $5.41
   RVOL: 1.56x
   RSI: 38.2
-  First Seen: 2026-08-25 | Consecutive Runs: 2 | Trend: STABLE | Prev Score: -0.62
+  First Seen: 2026-08-25 | Consecutive Runs: 3 | Trend: STABLE | Prev Score: -0.62
   Catalyst Events: 2026-08-21 4 (insider_sell, -0.6pts)
   Technical Notes: trend_alignment +0
   Extended Hours:
@@ -1588,15 +1587,15 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   % Since Catalyst: N/A%
   Risk Flags: 
   Close: $1.18
-  RVOL: 16.94x
+  RVOL: 16.96x
   RSI: 26.4
-  First Seen: 2026-08-25 | Consecutive Runs: 9 | Trend: STABLE | Prev Score: -1.00
+  First Seen: 2026-08-25 | Consecutive Runs: 10 | Trend: STABLE | Prev Score: -1.00
   Technical Notes: trend_alignment +0, rsi_weak -1
   Extended Hours:
-    AH Close: $1.07 | AH Vol: 848 | AH Move: -8.55%
-    AH Range: $1.07 - $1.40
+    AH Close: $1.06 | AH Vol: 848 | AH Move: -9.34%
+    AH Range: $1.01 - $1.40
     PM Open: $1.48 | PM Vol: 0 | PM Move: 26.50%
-    >> AH SELLOFF: -8.6% — caution, possible negative catalyst reaction
+    >> AH SELLOFF: -9.3% — caution, possible negative catalyst reaction
 
 --- HUYA ---
   Tier: Avoid
@@ -1611,7 +1610,7 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   Close: $2.15
   RVOL: 1.90x
   RSI: 28.9
-  First Seen: 2026-08-25 | Consecutive Runs: 6 | Trend: STABLE | Prev Score: -1.00
+  First Seen: 2026-08-25 | Consecutive Runs: 7 | Trend: STABLE | Prev Score: -1.00
   Technical Notes: trend_alignment +0, rsi_weak -1
   Extended Hours:
     AH Close: $2.15 | AH Vol: 23,973 | AH Move: 0.70%
@@ -1622,40 +1621,40 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   Tier: Avoid
   Composite Score: -1.00
   Catalyst Score (raw): 0.00
-  RVOL Multiplier: 1.17x
+  RVOL Multiplier: 1.18x
   Technical Score: -1.00
   Timing Penalty: 0.00 pts
   Timing Tag: N/A
   % Since Catalyst: N/A%
   Risk Flags: 
   Close: $1.49
-  RVOL: 1.76x
+  RVOL: 1.77x
   RSI: 17.0
-  First Seen: 2026-08-25 | Consecutive Runs: 7 | Trend: STABLE | Prev Score: -1.00
+  First Seen: 2026-08-25 | Consecutive Runs: 8 | Trend: STABLE | Prev Score: -1.00
   Technical Notes: trend_alignment +0, rsi_weak -1
   Extended Hours:
-    AH Close: $1.46 | AH Vol: 7,426 | AH Move: -2.43%
+    AH Close: $1.48 | AH Vol: 7,426 | AH Move: -1.12%
     AH Range: $1.41 - $2.77
     PM Open: $1.63 | PM Vol: 0 | PM Move: 8.94%
 
 --- PACB ---
   Tier: Avoid
-  Composite Score: -1.42
+  Composite Score: -1.43
   Catalyst Score (raw): -0.30
-  RVOL Multiplier: 1.41x
+  RVOL Multiplier: 1.42x
   Technical Score: 3.00
   Timing Penalty: -4.00 pts
   Timing Tag: Late Entry — Priced In
   % Since Catalyst: 33.3%
   Risk Flags: 
   Close: $1.52
-  RVOL: 2.12x
+  RVOL: 2.13x
   RSI: 61.2
-  First Seen: 2026-08-25 | Consecutive Runs: 6 | Trend: STABLE | Prev Score: -1.42
+  First Seen: 2026-08-25 | Consecutive Runs: 7 | Trend: FALLING | Prev Score: -1.42
   Catalyst Events: 2026-08-18 4 (insider_sell, -0.3pts)
   Technical Notes: trend_alignment +1, rsi_sweet_spot +2
   Extended Hours:
-    AH Close: $1.50 | AH Vol: 543,273 | AH Move: -1.30%
+    AH Close: $1.51 | AH Vol: 543,273 | AH Move: -0.66%
     AH Range: $1.22 - $1.52
     PM Open: $1.33 | PM Vol: 0 | PM Move: -12.50%
 
@@ -1672,7 +1671,7 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   Close: $3.41
   RVOL: 1.89x
   RSI: 67.8
-  First Seen: 2026-08-25 | Consecutive Runs: 5 | Trend: STABLE | Prev Score: -2.00
+  First Seen: 2026-08-25 | Consecutive Runs: 6 | Trend: STABLE | Prev Score: -2.00
   Catalyst Events: 2026-08-18 4 (insider_other, +0.0pts)
   Technical Notes: trend_alignment +1, rsi_mild_high +1
   Extended Hours:
@@ -1691,13 +1690,13 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   % Since Catalyst: -1.0%
   Risk Flags: 
   Close: $0.10
-  RVOL: 3.04x
+  RVOL: 3.05x
   RSI: 34.9
-  First Seen: 2026-08-25 | Consecutive Runs: 9 | Trend: STABLE | Prev Score: -4.80
+  First Seen: 2026-08-25 | Consecutive Runs: 10 | Trend: STABLE | Prev Score: -4.80
   Catalyst Events: 2026-08-21 8-K (material_event, -2.4pts)   Item 3.01 (delisting, -6)
   Technical Notes: trend_alignment +0
   Extended Hours:
-    AH Close: $0.09 | AH Vol: 157,511 | AH Move: -2.39%
+    AH Close: $0.10 | AH Vol: 157,511 | AH Move: 0.00%
     AH Range: $0.09 - $0.16
     PM Open: $0.08 | PM Vol: 0 | PM Move: -14.76%
 
@@ -1712,16 +1711,16 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   % Since Catalyst: 507.2%
   Risk Flags: 
   Close: $3.88
-  RVOL: 10.52x
+  RVOL: 10.65x
   RSI: 83.6
-  First Seen: 2026-08-24 | Consecutive Runs: 20 | Trend: STABLE | Prev Score: -6.20
+  First Seen: 2026-08-24 | Consecutive Runs: 21 | Trend: STABLE | Prev Score: -6.20
   Catalyst Events: 2026-08-18 8-K (material_event, -0.6pts)   Item 3.01 (delisting, -6) | Item 2.04 (price_trigger, +2)
   Technical Notes: trend_alignment +1, rsi_overbought -2
   Extended Hours:
-    AH Close: $4.17 | AH Vol: 25,729 | AH Move: 8.10%
-    AH Range: $0.40 - $6.26
+    AH Close: $5.85 | AH Vol: 25,729 | AH Move: 51.72%
+    AH Range: $0.40 - $6.49
     PM Open: $3.73 | PM Vol: 0 | PM Move: -3.26%
-    >> SIGNIFICANT AH MOVE: +8.1% — catalyst may be driving after-hours interest
+    >> SIGNIFICANT AH MOVE: +51.7% — catalyst may be driving after-hours interest
 
 --- SHMD ---
   Tier: Avoid
@@ -1734,13 +1733,13 @@ Columns: SYMBOL | TIER | SCORE | CATALYST_RAW | RVOL_MULT | TECH_SCORE |
   % Since Catalyst: 0.0%
   Risk Flags: dilution_risk
   Close: $3.42
-  RVOL: 5.98x
+  RVOL: 6.00x
   RSI: 31.8
-  First Seen: 2026-08-24 | Consecutive Runs: 18 | Trend: STABLE | Prev Score: -32.00
+  First Seen: 2026-08-24 | Consecutive Runs: 19 | Trend: STABLE | Prev Score: -32.00
   Catalyst Events: 2026-08-25 424B3 (dilution_risk, -4.0pts) | 2026-08-25 424B3 (dilution_risk, -4.0pts) | 2026-08-25 424B3 (dilution_risk, -4.0pts) | 2026-08-25 424B3 (dilution_risk, -4.0pts)
   Technical Notes: trend_alignment +0
   Extended Hours:
-    AH Close: $3.40 | AH Vol: 27,607 | AH Move: -0.56%
+    AH Close: $3.39 | AH Vol: 27,607 | AH Move: -0.87%
     AH Range: $3.39 - $5.00
     PM Open: $4.72 | PM Vol: 0 | PM Move: 38.02%
 
