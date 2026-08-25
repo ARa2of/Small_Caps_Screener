@@ -1,368 +1,110 @@
 {
-  "LUCY": {
-    "first_seen": "2026-08-24",
-    "last_seen": "2026-08-24",
-    "consecutive_runs": 11,
-    "last_score": 33.0
+  "FNGR": {
+    "first_seen": "2026-08-25",
+    "last_seen": "2026-08-25",
+    "consecutive_runs": 1,
+    "last_score": 5.6
   },
-  "RMAX": {
-    "first_seen": "2026-08-24",
-    "last_seen": "2026-08-24",
-    "consecutive_runs": 11,
-    "last_score": 19.2
+  "GPUS": {
+    "first_seen": "2026-08-25",
+    "last_seen": "2026-08-25",
+    "consecutive_runs": 1,
+    "last_score": 5.42
   },
-  "XPON": {
-    "first_seen": "2026-08-24",
-    "last_seen": "2026-08-24",
-    "consecutive_runs": 11,
-    "last_score": 18.0
+  "GRML": {
+    "first_seen": "2026-08-25",
+    "last_seen": "2026-08-25",
+    "consecutive_runs": 1,
+    "last_score": 4.6
   },
-  "CEPO": {
-    "first_seen": "2026-08-24",
-    "last_seen": "2026-08-24",
-    "consecutive_runs": 11,
-    "last_score": 18.0
-  },
-  "DTCX": {
-    "first_seen": "2026-08-24",
-    "last_seen": "2026-08-24",
-    "consecutive_runs": 10,
-    "last_score": 9.0
-  },
-  "CYPH": {
-    "first_seen": "2026-08-24",
-    "last_seen": "2026-08-24",
-    "consecutive_runs": 11,
-    "last_score": 8.8
-  },
-  "BRBS": {
-    "first_seen": "2026-08-24",
-    "last_seen": "2026-08-24",
-    "consecutive_runs": 11,
-    "last_score": 7.41
-  },
-  "FRMM": {
-    "first_seen": "2026-08-24",
-    "last_seen": "2026-08-24",
-    "consecutive_runs": 11,
-    "last_score": 7.13
-  },
-  "CRBP": {
-    "first_seen": "2026-08-24",
-    "last_seen": "2026-08-24",
-    "consecutive_runs": 11,
-    "last_score": 6.8
-  },
-  "BACC": {
-    "first_seen": "2026-08-24",
-    "last_seen": "2026-08-24",
-    "consecutive_runs": 11,
-    "last_score": 6.0
-  },
-  "FUSB": {
-    "first_seen": "2026-08-24",
-    "last_seen": "2026-08-24",
-    "consecutive_runs": 11,
-    "last_score": 6.0
-  },
-  "GGT": {
-    "first_seen": "2026-08-24",
-    "last_seen": "2026-08-24",
-    "consecutive_runs": 10,
-    "last_score": 6.0
-  },
-  "ENTA": {
-    "first_seen": "2026-08-24",
-    "last_seen": "2026-08-24",
-    "consecutive_runs": 7,
-    "last_score": 6.0
-  },
-  "GUT": {
-    "first_seen": "2026-08-24",
-    "last_seen": "2026-08-24",
-    "consecutive_runs": 7,
-    "last_score": 6.0
-  },
-  "SPXX": {
-    "first_seen": "2026-08-24",
-    "last_seen": "2026-08-24",
-    "consecutive_runs": 8,
-    "last_score": 6.0
-  },
-  "QTTB": {
-    "first_seen": "2026-08-24",
-    "last_seen": "2026-08-24",
-    "consecutive_runs": 8,
-    "last_score": 6.0
-  },
-  "FWDI": {
-    "first_seen": "2026-08-24",
-    "last_seen": "2026-08-24",
-    "consecutive_runs": 11,
-    "last_score": 5.4
-  },
-  "EPRX": {
-    "first_seen": "2026-08-24",
-    "last_seen": "2026-08-24",
-    "consecutive_runs": 11,
-    "last_score": 5.0
-  },
-  "BFRI": {
-    "first_seen": "2026-08-24",
-    "last_seen": "2026-08-24",
-    "consecutive_runs": 9,
-    "last_score": 5.0
-  },
-  "FLUX": {
-    "first_seen": "2026-08-24",
-    "last_seen": "2026-08-24",
-    "consecutive_runs": 11,
-    "last_score": 4.44
-  },
-  "ZIP": {
-    "first_seen": "2026-08-24",
-    "last_seen": "2026-08-24",
-    "consecutive_runs": 8,
-    "last_score": 4.24
-  },
-  "PUSA": {
-    "first_seen": "2026-08-24",
-    "last_seen": "2026-08-24",
-    "consecutive_runs": 11,
-    "last_score": 4.2
-  },
-  "OKUR": {
-    "first_seen": "2026-08-24",
-    "last_seen": "2026-08-24",
-    "consecutive_runs": 11,
+  "SLQT": {
+    "first_seen": "2026-08-25",
+    "last_seen": "2026-08-25",
+    "consecutive_runs": 1,
     "last_score": 4.0
   },
-  "DHF": {
-    "first_seen": "2026-08-24",
-    "last_seen": "2026-08-24",
-    "consecutive_runs": 11,
-    "last_score": 4.0
+  "HVII": {
+    "first_seen": "2026-08-25",
+    "last_seen": "2026-08-25",
+    "consecutive_runs": 1,
+    "last_score": 3.29
   },
-  "ACIU": {
-    "first_seen": "2026-08-24",
-    "last_seen": "2026-08-24",
-    "consecutive_runs": 7,
-    "last_score": 4.0
+  "SMTK": {
+    "first_seen": "2026-08-25",
+    "last_seen": "2026-08-25",
+    "consecutive_runs": 1,
+    "last_score": 3.0
   },
-  "ANY": {
-    "first_seen": "2026-08-24",
-    "last_seen": "2026-08-24",
-    "consecutive_runs": 11,
-    "last_score": 3.92
+  "AMIX": {
+    "first_seen": "2026-08-25",
+    "last_seen": "2026-08-25",
+    "consecutive_runs": 1,
+    "last_score": 3.0
   },
-  "DFDV": {
-    "first_seen": "2026-08-24",
-    "last_seen": "2026-08-24",
-    "consecutive_runs": 11,
-    "last_score": 3.64
+  "AEON": {
+    "first_seen": "2026-08-25",
+    "last_seen": "2026-08-25",
+    "consecutive_runs": 1,
+    "last_score": 2.6
+  },
+  "DFNS": {
+    "first_seen": "2026-08-25",
+    "last_seen": "2026-08-25",
+    "consecutive_runs": 1,
+    "last_score": 2.12
+  },
+  "WVVIP": {
+    "first_seen": "2026-08-25",
+    "last_seen": "2026-08-25",
+    "consecutive_runs": 1,
+    "last_score": 1.0
+  },
+  "BDRX": {
+    "first_seen": "2026-08-25",
+    "last_seen": "2026-08-25",
+    "consecutive_runs": 1,
+    "last_score": 0.0
   },
   "PMI": {
     "first_seen": "2026-08-24",
-    "last_seen": "2026-08-24",
-    "consecutive_runs": 11,
-    "last_score": 3.4
-  },
-  "VITL": {
-    "first_seen": "2026-08-24",
-    "last_seen": "2026-08-24",
-    "consecutive_runs": 6,
-    "last_score": 3.21
-  },
-  "BCTX": {
-    "first_seen": "2026-08-24",
-    "last_seen": "2026-08-24",
-    "consecutive_runs": 11,
-    "last_score": 3.0
-  },
-  "SDEV": {
-    "first_seen": "2026-08-24",
-    "last_seen": "2026-08-24",
-    "consecutive_runs": 11,
-    "last_score": 3.0
-  },
-  "VBIO": {
-    "first_seen": "2026-08-24",
-    "last_seen": "2026-08-24",
-    "consecutive_runs": 11,
-    "last_score": 3.0
-  },
-  "NPWR": {
-    "first_seen": "2026-08-24",
-    "last_seen": "2026-08-24",
-    "consecutive_runs": 11,
-    "last_score": 3.0
-  },
-  "UPXI": {
-    "first_seen": "2026-08-24",
-    "last_seen": "2026-08-24",
-    "consecutive_runs": 11,
-    "last_score": 3.0
-  },
-  "LSTA": {
-    "first_seen": "2026-08-24",
-    "last_seen": "2026-08-24",
-    "consecutive_runs": 11,
-    "last_score": 3.0
-  },
-  "CRDF": {
-    "first_seen": "2026-08-24",
-    "last_seen": "2026-08-24",
-    "consecutive_runs": 11,
-    "last_score": 3.0
-  },
-  "GORO": {
-    "first_seen": "2026-08-24",
-    "last_seen": "2026-08-24",
-    "consecutive_runs": 9,
-    "last_score": 3.0
-  },
-  "CAPR": {
-    "first_seen": "2026-08-24",
-    "last_seen": "2026-08-24",
-    "consecutive_runs": 11,
-    "last_score": 2.25
+    "last_seen": "2026-08-25",
+    "consecutive_runs": 12,
+    "last_score": 0.0
   },
   "MCRP": {
     "first_seen": "2026-08-24",
-    "last_seen": "2026-08-24",
-    "consecutive_runs": 6,
-    "last_score": 2.0
-  },
-  "DEFT": {
-    "first_seen": "2026-08-24",
-    "last_seen": "2026-08-24",
-    "consecutive_runs": 11,
-    "last_score": 2.0
-  },
-  "NGEN": {
-    "first_seen": "2026-08-24",
-    "last_seen": "2026-08-24",
-    "consecutive_runs": 11,
-    "last_score": 2.0
-  },
-  "GOVX": {
-    "first_seen": "2026-08-24",
-    "last_seen": "2026-08-24",
-    "consecutive_runs": 11,
-    "last_score": 2.0
-  },
-  "ZVIA": {
-    "first_seen": "2026-08-24",
-    "last_seen": "2026-08-24",
-    "consecutive_runs": 11,
-    "last_score": 2.0
-  },
-  "VVR": {
-    "first_seen": "2026-08-24",
-    "last_seen": "2026-08-24",
-    "consecutive_runs": 8,
-    "last_score": 2.0
-  },
-  "SHMD": {
-    "first_seen": "2026-08-24",
-    "last_seen": "2026-08-24",
-    "consecutive_runs": 9,
-    "last_score": 2.0
-  },
-  "GGN": {
-    "first_seen": "2026-08-24",
-    "last_seen": "2026-08-24",
-    "consecutive_runs": 9,
-    "last_score": 2.0
-  },
-  "BRR": {
-    "first_seen": "2026-08-24",
-    "last_seen": "2026-08-24",
-    "consecutive_runs": 8,
-    "last_score": 1.96
-  },
-  "AMCI": {
-    "first_seen": "2026-08-24",
-    "last_seen": "2026-08-24",
-    "consecutive_runs": 9,
-    "last_score": 1.45
-  },
-  "NFE": {
-    "first_seen": "2026-08-24",
-    "last_seen": "2026-08-24",
-    "consecutive_runs": 10,
-    "last_score": 1.38
-  },
-  "BTCS": {
-    "first_seen": "2026-08-24",
-    "last_seen": "2026-08-24",
-    "consecutive_runs": 11,
-    "last_score": 1.35
-  },
-  "SABS": {
-    "first_seen": "2026-08-24",
-    "last_seen": "2026-08-24",
-    "consecutive_runs": 8,
-    "last_score": 1.11
-  },
-  "BMEA": {
-    "first_seen": "2026-08-24",
-    "last_seen": "2026-08-24",
-    "consecutive_runs": 11,
-    "last_score": 1.0
-  },
-  "GIPR": {
-    "first_seen": "2026-08-24",
-    "last_seen": "2026-08-24",
-    "consecutive_runs": 11,
-    "last_score": 0.2
-  },
-  "VMAR": {
-    "first_seen": "2026-08-24",
-    "last_seen": "2026-08-24",
-    "consecutive_runs": 11,
+    "last_seen": "2026-08-25",
+    "consecutive_runs": 7,
     "last_score": 0.0
   },
-  "BTOG": {
-    "first_seen": "2026-08-24",
-    "last_seen": "2026-08-24",
-    "consecutive_runs": 11,
+  "CNTX": {
+    "first_seen": "2026-08-25",
+    "last_seen": "2026-08-25",
+    "consecutive_runs": 1,
     "last_score": 0.0
   },
-  "NXGL": {
-    "first_seen": "2026-08-24",
-    "last_seen": "2026-08-24",
-    "consecutive_runs": 11,
-    "last_score": -0.2
+  "NCPL": {
+    "first_seen": "2026-08-25",
+    "last_seen": "2026-08-25",
+    "consecutive_runs": 1,
+    "last_score": -0.8
   },
-  "TNYA": {
-    "first_seen": "2026-08-24",
-    "last_seen": "2026-08-24",
-    "consecutive_runs": 10,
-    "last_score": -0.74
-  },
-  "OLOX": {
-    "first_seen": "2026-08-24",
-    "last_seen": "2026-08-24",
-    "consecutive_runs": 11,
-    "last_score": -1.0
-  },
-  "HUYA": {
-    "first_seen": "2026-08-24",
-    "last_seen": "2026-08-24",
-    "consecutive_runs": 11,
-    "last_score": -1.0
+  "SNYR": {
+    "first_seen": "2026-08-25",
+    "last_seen": "2026-08-25",
+    "consecutive_runs": 1,
+    "last_score": -4.61
   },
   "DAIC": {
     "first_seen": "2026-08-24",
-    "last_seen": "2026-08-24",
-    "consecutive_runs": 11,
-    "last_score": -3.6
+    "last_seen": "2026-08-25",
+    "consecutive_runs": 12,
+    "last_score": -6.2
   },
-  "WHLR": {
+  "SHMD": {
     "first_seen": "2026-08-24",
-    "last_seen": "2026-08-24",
-    "consecutive_runs": 6,
-    "last_score": -38.2
+    "last_seen": "2026-08-25",
+    "consecutive_runs": 10,
+    "last_score": -32.0
   }
 }
