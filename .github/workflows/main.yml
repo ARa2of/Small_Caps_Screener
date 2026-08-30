@@ -14,6 +14,7 @@ permissions:
 
 jobs:
   run-screener:
+    if: false  # PAUSED: workflow temporarily disabled — remove this line to resume
     runs-on: ubuntu-latest  # free GitHub-hosted runner
     timeout-minutes: 30
 
